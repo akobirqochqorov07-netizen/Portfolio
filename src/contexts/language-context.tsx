@@ -46,7 +46,8 @@ export interface Translations {
     timelineExperience: string;
     skillsTitle: string;
 
-    // Timeline items
+    // Skills descriptions
+    skillDescs: string[];
     pdpTitle: string;
     pdpDesc: string;
     schoolTitle: string;
@@ -124,6 +125,19 @@ export const translations: Record<Lang, Translations> = {
         resumeFilterAll: "All",
         resumeFilterWork: "Work",
         resumeFilterEdu: "Education",
+
+        // Skills descriptions (9 items matching skills array)
+        skillDescs: [
+            "Semantic HTML5, advanced layouts, flex, grid, and hardware-accelerated CSS animations.",
+            "Asynchronous flows, type safety, closure mechanics, and functional coding patterns.",
+            "Server Actions, route optimization, state structures, and optimized virtual DOM updates.",
+            "Utility-first architectures, responsiveness parameters, and theme setups.",
+            "Designing complex business process flows, sequence charts, and logic models.",
+            "Query design, relation mappings, information processing, and stats dashboards.",
+            "Managing sprint backlogs, organizing ticket stories, and running daily standups.",
+            "Writing user stories, defining scope metrics, and specifying functional parameters.",
+            "Wireframing interfaces, visual components, interaction mockups, and glassmorphism styling.",
+        ],
 
         // Resume
         resumeTitle: "Resume",
@@ -208,6 +222,19 @@ export const translations: Record<Lang, Translations> = {
         resumeFilterWork: "Работа",
         resumeFilterEdu: "Образование",
 
+        // Skills descriptions
+        skillDescs: [
+            "Семантический HTML5, продвинутые макеты, flex, grid и CSS-анимации с аппаратным ускорением.",
+            "Асинхронные потоки, безопасность типов, механика замыканий и функциональные паттерны.",
+            "Server Actions, оптимизация маршрутов, структуры состояния и обновления виртуального DOM.",
+            "Утилитарная архитектура, параметры адаптивности и настройка тем.",
+            "Проектирование бизнес-процессов, диаграммы последовательности и логические модели.",
+            "Проектирование запросов, связывание данных, обработка информации и дашборды.",
+            "Управление беклогами, организация задач и проведение daily-встреч.",
+            "Написание пользовательских историй, определение метрик и функциональных параметров.",
+            "Вайрфреймы, визуальные компоненты, интерактивные мокапы и glassmorphism.",
+        ],
+
         // Resume
         resumeTitle: "Резюме",
         timelineWork: "Опыт работы",
@@ -290,6 +317,19 @@ export const translations: Record<Lang, Translations> = {
         resumeFilterAll: "Barchasi",
         resumeFilterWork: "Ish",
         resumeFilterEdu: "Ta'lim",
+
+        // Skills descriptions
+        skillDescs: [
+            "Semantik HTML5, murakkab layout'lar, flex, grid va CSS animatsiyalari.",
+            "Asinxron oqimlar, tip xavfsizligi, closure mexanikasi va funksional dasturlash.",
+            "Server Actions, marshrutni optimallashtirish, holat tuzilmalari va virtual DOM yangilanishlari.",
+            "Utility-first arxitektura, responsivlik parametrlari va tema sozlamalari.",
+            "Murakkab biznes jarayonlari, ketma-ketlik diagrammalari va mantiqiy modellar.",
+            "So'rovlarni loyihalash, aloqalarni xaritalash, ma'lumotlarni qayta ishlash va dashboardlar.",
+            "Sprint backlog'larini boshqarish, vazifalarni tashkil etish va daily standuplar.",
+            "Foydalanuvchi tariflari yozish, qamrov metrikalarini aniqlash va funksional parametrlar.",
+            "Interfeys wireframe'lari, vizual komponentlar, interaktiv maketlar va glassmorphism.",
+        ],
 
         // Resume
         resumeTitle: "Rezyume",

@@ -28,9 +28,10 @@ function AnimatedNumber({ value, inView }: { value: number; inView: boolean }) {
 function SkillHex({
     skill, index, inView, selected, onToggle,
 }: {
-    skill: { label: string; percentage: number; color: string; icon: React.ElementType; desc: string };
+    skill: { label: string; percentage: number; color: string; icon: React.ElementType; descKey: number };
     index: number; inView: boolean; selected: boolean; onToggle: () => void;
 }) {
+    const { t } = useLanguage();
     const Icon = skill.icon;
     const r = 28; // radius
     const circ = 2 * Math.PI * r;
@@ -74,7 +75,7 @@ function SkillHex({
                         transition={{ duration: 0.22 }}
                         style={{ overflow: "hidden", width: "100%" }}
                     >
-                        <p className="shex-desc">{skill.desc}</p>
+                        <p className="shex-desc">{t.skillDescs[skill.descKey]}</p>
                     </motion.div>
                 )}
             </AnimatePresence>
@@ -103,15 +104,15 @@ export default function ResumeTab({ active }: { active: boolean }) {
     }, []);
 
     const skills = [
-        { label: "HTML & CSS",          percentage: 95, color: "#4facfe", icon: Code,        desc: "Semantic HTML5, advanced layouts, flex, grid, and hardware-accelerated CSS animations." },
-        { label: "JS & TypeScript",     percentage: 90, color: "#f093fb", icon: Zap,         desc: "Asynchronous flows, type safety, closure mechanics, and functional coding patterns." },
-        { label: "React & Next.js",     percentage: 90, color: "#43e97b", icon: Code,        desc: "Server Actions, route optimization, state structures, and optimized virtual DOM updates." },
-        { label: "Tailwind CSS",        percentage: 95, color: "#00f2fe", icon: Zap,         desc: "Utility-first architectures, responsiveness parameters, and theme setups." },
-        { label: "BPMN & UML",          percentage: 80, color: "#fa709a", icon: ShieldCheck, desc: "Designing complex business process flows, sequence charts, and logic models." },
-        { label: "Data Analysis & SQL", percentage: 75, color: "#a18cd1", icon: Award,       desc: "Query design, relation mappings, information processing, and stats dashboards." },
-        { label: "Agile & Scrum",       percentage: 85, color: "#fda085", icon: Briefcase,   desc: "Managing sprint backlogs, organizing ticket stories, and running daily standups." },
-        { label: "PRD Design",          percentage: 80, color: "#f5576c", icon: ShieldCheck, desc: "Writing user stories, defining scope metrics, and specifying functional parameters." },
-        { label: "Figma (UI/UX)",       percentage: 80, color: "#667eea", icon: GraduationCap, desc: "Wireframing interfaces, visual components, interaction mockups, and glassmorphism styling." },
+        { label: "HTML & CSS",          percentage: 95, color: "#4facfe", icon: Code,        descKey: 0 },
+        { label: "JS & TypeScript",     percentage: 90, color: "#f093fb", icon: Zap,         descKey: 1 },
+        { label: "React & Next.js",     percentage: 90, color: "#43e97b", icon: Code,        descKey: 2 },
+        { label: "Tailwind CSS",        percentage: 95, color: "#00f2fe", icon: Zap,         descKey: 3 },
+        { label: "BPMN & UML",          percentage: 80, color: "#fa709a", icon: ShieldCheck, descKey: 4 },
+        { label: "Data Analysis & SQL", percentage: 75, color: "#a18cd1", icon: Award,       descKey: 5 },
+        { label: "Agile & Scrum",       percentage: 85, color: "#fda085", icon: Briefcase,   descKey: 6 },
+        { label: "PRD Design",          percentage: 80, color: "#f5576c", icon: ShieldCheck, descKey: 7 },
+        { label: "Figma (UI/UX)",       percentage: 80, color: "#667eea", icon: GraduationCap, descKey: 8 },
     ];
 
     const timelineContainerVariants = {
