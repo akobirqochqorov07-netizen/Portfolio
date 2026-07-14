@@ -53,9 +53,6 @@ export function buildRectFramePaths(
 
   const tl = { x: ix + r, y: iy };
   const tr = { x: ix + iw - r, y: iy };
-  const br = { x: ix + iw, y: iy + ih - r };
-  const bl = { x: ix + r, y: iy + ih };
-
   const topEdge = `M ${tl.x},${tl.y} L ${tr.x},${tr.y}`;
   const topRight = `M ${tr.x},${tr.y} Q ${ix + iw},${iy} ${ix + iw},${iy + r}`;
   const rightEdge = `M ${ix + iw},${iy + r} L ${ix + iw},${iy + ih - r}`;

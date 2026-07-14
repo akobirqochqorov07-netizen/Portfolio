@@ -108,8 +108,8 @@ interface LogoCarouselProps {
 }
 
 export function LogoCarousel({ columnCount = 3, logos }: LogoCarouselProps) {
-    const [logoSets, setLogoSets] = useState<LogoItem[][]>([]);
     const [currentTime, setCurrentTime] = useState(0);
+    const logoSets = useMemo(() => distributeLogos(logos, columnCount), [logos, columnCount]);
 
     const updateTime = useCallback(() => {
         setCurrentTime((prev) => prev + 100);
@@ -119,10 +119,6 @@ export function LogoCarousel({ columnCount = 3, logos }: LogoCarouselProps) {
         const id = setInterval(updateTime, 100);
         return () => clearInterval(id);
     }, [updateTime]);
-
-    useEffect(() => {
-        setLogoSets(distributeLogos(logos, columnCount));
-    }, [logos, columnCount]);
 
     return (
         <div className="logo-carousel-root">
