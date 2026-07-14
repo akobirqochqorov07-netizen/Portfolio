@@ -5,6 +5,7 @@ import { useLanguage } from "@/contexts/language-context";
 import { motion, AnimatePresence } from "framer-motion";
 import { Brain, Code, Target, HelpCircle, Flame, Settings, Send } from "lucide-react";
 import { Instagram as InstagramIcon, Github as GithubIcon, Linkedin as LinkedinIcon } from "lucide-react";
+import { asset } from "@/lib/base-path";
 
 /* ─────────────────────────────────────────
    Auto-rotating carousel (Basketball / Tennis)
@@ -242,7 +243,7 @@ export default function AboutTab({ active }: { active: boolean }) {
                                             <video
                                                 ref={videoRefs[i]}
                                                 className="card-bg-video"
-                                                src={`/assets/images/video${[2, 1, 3][i]}.mp4`}
+                                                src={asset(`/assets/images/video${[2, 1, 3][i]}.mp4`)}
                                                 loop muted playsInline
                                             />
                                             <div className="video-glass-overlay" />
@@ -316,23 +317,23 @@ export default function AboutTab({ active }: { active: boolean }) {
                                                 <div className="it-media-frame">
                                                     {activeInterest === "ai" && (
                                                         <video
-                                                            src="/assets/images/video4.mp4"
+                                                            src={asset("/assets/images/video4.mp4")}
                                                             autoPlay loop muted playsInline
                                                             className="it-single-video"
                                                         />
                                                     )}
                                                     {activeInterest === "basketball" && (
                                                         <VideoCarousel srcs={[
-                                                            "/assets/images/video5.mp4",
-                                                            "/assets/images/video6.mp4",
-                                                            "/assets/images/video7.mp4",
+                                                            asset("/assets/images/video5.mp4"),
+                                                            asset("/assets/images/video6.mp4"),
+                                                            asset("/assets/images/video7.mp4"),
                                                         ]} />
                                                     )}
                                                     {activeInterest === "tennis" && (
                                                         <VideoCarousel srcs={[
-                                                            "/assets/images/video8.mp4",
-                                                            "/assets/images/video9.mp4",
-                                                            "/assets/images/video10.mp4",
+                                                            asset("/assets/images/video8.mp4"),
+                                                            asset("/assets/images/video9.mp4"),
+                                                            asset("/assets/images/video10.mp4"),
                                                         ]} />
                                                     )}
                                                     {activeInterest === "hobbies" && (

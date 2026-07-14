@@ -6,29 +6,30 @@ import { ChevronDown, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
 import { LogoCarousel, type LogoItem } from "@/components/ui/logo-carousel";
 import { ProjectCard } from "@/components/ui/project-card";
+import { asset } from "@/lib/base-path";
 
 const LOGOS: LogoItem[] = [
-    { id: 1, name: "Greenbyte",  img: "/assets/images/Greenbyte.png",  href: "https://akobirqochqorov07-netizen.github.io/GreenByte/" },
-    { id: 2, name: "Bahola",     img: "/assets/images/Bahola.png",     href: "https://akobirqochqorov07-netizen.github.io/Bahola/" },
-    { id: 3, name: "Payfintech", img: "/assets/images/Payfintech.png", href: "https://payfintech.uz/" },
-    { id: 4, name: "SkillSwap",  img: "/assets/images/Skillswap.png",  href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/" },
-    { id: 5, name: "Pully",      img: "/assets/images/Pully.png",      href: "https://pully.uz/" },
-    { id: 6, name: "Arlo",       img: "/assets/images/Arlo.png",       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/" },
-    { id: 7, name: "Intask",     img: "/assets/images/Intask.png",     href: "https://intask.uz/" },
-    { id: 8, name: "Tozago",     img: "/assets/images/Tozago.png",     href: "https://akobirqochqorov07-netizen.github.io/tozago/" },
-    { id: 9, name: "Oxen",       img: "/assets/images/Oxen.png",       href: "https://azimboyevshuxrux-mvp1.rork.app" },
+    { id: 1, name: "Greenbyte",  img: asset("/assets/images/Greenbyte.png"),  href: "https://akobirqochqorov07-netizen.github.io/GreenByte/" },
+    { id: 2, name: "Bahola",     img: asset("/assets/images/Bahola.png"),     href: "https://akobirqochqorov07-netizen.github.io/Bahola/" },
+    { id: 3, name: "Payfintech", img: asset("/assets/images/Payfintech.png"), href: "https://payfintech.uz/" },
+    { id: 4, name: "SkillSwap",  img: asset("/assets/images/Skillswap.png"),  href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/" },
+    { id: 5, name: "Pully",      img: asset("/assets/images/Pully.png"),      href: "https://pully.uz/" },
+    { id: 6, name: "Arlo",       img: asset("/assets/images/Arlo.png"),       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/" },
+    { id: 7, name: "Intask",     img: asset("/assets/images/Intask.png"),     href: "https://intask.uz/" },
+    { id: 8, name: "Tozago",     img: asset("/assets/images/Tozago.png"),     href: "https://akobirqochqorov07-netizen.github.io/tozago/" },
+    { id: 9, name: "Oxen",       img: asset("/assets/images/Oxen.png"),       href: "https://azimboyevshuxrux-mvp1.rork.app" },
 ];
 
 const PROJECTS = [
-    { name: "Greenbyte",  img: "/assets/images/Greenbyte.png",  href: "https://akobirqochqorov07-netizen.github.io/GreenByte/",  tag: "Web App" },
-    { name: "Bahola",     img: "/assets/images/Bahola.png",     href: "https://akobirqochqorov07-netizen.github.io/Bahola/",     tag: "Frontend" },
-    { name: "Payfintech", img: "/assets/images/Payfintech.png", href: "https://payfintech.uz/",                                  tag: "Fintech" },
-    { name: "SkillSwap",  img: "/assets/images/Skillswap.png",  href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/", tag: "Ed-Tech" },
-    { name: "Pully",      img: "/assets/images/Pully.png",      href: "https://pully.uz/",                                      tag: "Fintech" },
-    { name: "Arlo AI",    img: "/assets/images/Arlo.png",       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/",   tag: "AI / SaaS" },
-    { name: "Intask",     img: "/assets/images/Intask.png",     href: "https://intask.uz/",                                     tag: "Productivity" },
-    { name: "Tozago",     img: "/assets/images/Tozago.png",     href: "https://akobirqochqorov07-netizen.github.io/tozago/",    tag: "Services" },
-    { name: "Oxen",       img: "/assets/images/Oxen.png",       href: "https://azimboyevshuxrux-mvp1.rork.app",                 tag: "Mobile" },
+    { name: "Greenbyte",  img: asset("/assets/images/Greenbyte.png"),  href: "https://akobirqochqorov07-netizen.github.io/GreenByte/",  tag: "Web App" },
+    { name: "Bahola",     img: asset("/assets/images/Bahola.png"),     href: "https://akobirqochqorov07-netizen.github.io/Bahola/",     tag: "Frontend" },
+    { name: "Payfintech", img: asset("/assets/images/Payfintech.png"), href: "https://payfintech.uz/",                                  tag: "Fintech" },
+    { name: "SkillSwap",  img: asset("/assets/images/Skillswap.png"),  href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/", tag: "Ed-Tech" },
+    { name: "Pully",      img: asset("/assets/images/Pully.png"),      href: "https://pully.uz/",                                      tag: "Fintech" },
+    { name: "Arlo AI",    img: asset("/assets/images/Arlo.png"),       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/",   tag: "AI / SaaS" },
+    { name: "Intask",     img: asset("/assets/images/Intask.png"),     href: "https://intask.uz/",                                     tag: "Productivity" },
+    { name: "Tozago",     img: asset("/assets/images/Tozago.png"),     href: "https://akobirqochqorov07-netizen.github.io/tozago/",    tag: "Services" },
+    { name: "Oxen",       img: asset("/assets/images/Oxen.png"),       href: "https://azimboyevshuxrux-mvp1.rork.app",                 tag: "Mobile" },
 ];
 
 const CARD_LINKS = [
@@ -42,12 +43,12 @@ const CARD_LINKS = [
 
 const CARD_TITLES = ["Greenbyte", "Bahola", "Payfintech", "SkillSwap", "Pully", "Arlo AI"];
 const CARD_IMGS   = [
-    "/assets/images/project01.png",
-    "/assets/images/project02.png",
-    "/assets/images/project03.png",
-    "/assets/images/project04.png",
-    "/assets/images/project05.png",
-    "/assets/images/project06.png",
+    asset("/assets/images/project01.png"),
+    asset("/assets/images/project02.png"),
+    asset("/assets/images/project03.png"),
+    asset("/assets/images/project04.png"),
+    asset("/assets/images/project05.png"),
+    asset("/assets/images/project06.png"),
 ];
 
 export default function PortfolioTab({ active }: { active: boolean }) {

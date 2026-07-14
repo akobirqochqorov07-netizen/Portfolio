@@ -3,10 +3,11 @@
 import React, { useState, useRef, useCallback } from "react";
 import IonIcon from "@/components/ui/ion-icon";
 import { useLanguage } from "@/contexts/language-context";
+import { asset } from "@/lib/base-path";
 
 const PHOTOS = [
-    "/assets/images/picture1.jpg",
-    "/assets/images/picture2.jpg",
+    asset("/assets/images/picture1.jpg"),
+    asset("/assets/images/picture2.jpg"),
 ];
 
 /* ─── Interactive Location Map Card ─── */

@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: "npm"
 
       - name: Install dependencies
@@ -35,7 +35,7 @@ jobs:
         env:
           NEXT_TELEMETRY_DISABLED: "1"
           NEXT_FONT_GOOGLE_DISABLE: "true"
-          NEXT_PUBLIC_BASE_PATH: "/Portfolio"
+          NEXT_PUBLIC_BASE_PATH: "/${{ github.event.repository.name }}"
 
       - name: Add .nojekyll
         run: touch out/.nojekyll
