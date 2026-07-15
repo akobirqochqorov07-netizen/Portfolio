@@ -2598,11 +2598,11 @@ main {
     background: var(--jet);
   }
 
-  /* Position language switcher option panels downwards */
+  /* Position language switcher option panels upwards (navbar sits at bottom on mobile) */
   .navbar .lang-options {
-    top: calc(100% + 8px);
-    bottom: auto;
-    transform: translateY(-8px) scale(0.93);
+    top: auto;
+    bottom: calc(100% + 8px);
+    transform: translateY(8px) scale(0.93);
   }
 
   .navbar .lang-options--open {
