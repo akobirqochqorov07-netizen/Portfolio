@@ -4174,3 +4174,272 @@ main {
   font-family: monospace;
   letter-spacing: 0.3px;
 }
+
+
+/* ============================================================
+   MOBILE OPTIMIZATIONS — max-width 580px
+   Fixes: card overflow, cramped grids, tab button nowrap,
+          logo carousel distortion, spline card sizing,
+          philosophy layout, video-service-card height
+   ============================================================ */
+
+@media (max-width: 580px) {
+
+  /* ── Base padding for articles ── */
+  .sidebar,
+  article {
+    padding: 16px;
+  }
+
+  main {
+    margin: 10px 10px 100px;
+  }
+
+  /* ── Sidebar ── */
+  .avatar-box {
+    width: 120px;
+    height: 160px;
+  }
+
+  .info-content .name {
+    font-size: 15px;
+  }
+
+  /* ── About inner tabs ── */
+  .about-inner-tabs {
+    padding: 3px;
+    gap: 3px;
+  }
+
+  .about-tab-btn {
+    padding: 8px 6px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  .about-tab-label-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 72px;
+  }
+
+  /* ── Philosophy items ── */
+  .philosophy-item {
+    padding: 10px 12px;
+    gap: 10px;
+    border-radius: 14px;
+  }
+
+  .ph-icon-circle {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .philosophy-detail-card {
+    padding: 16px;
+    min-height: 160px;
+  }
+
+  .ph-card-title {
+    font-size: 15px;
+  }
+
+  .ph-card-desc {
+    font-size: 12px;
+  }
+
+  /* ── Video service cards — fix fixed height clipping text ── */
+  .video-service-card {
+    height: auto;
+    min-height: 200px;
+    padding: 18px;
+  }
+
+  .svc-item-title {
+    font-size: 13px;
+  }
+
+  .svc-item-text {
+    font-size: 12px;
+  }
+
+  /* ── Skills ring grid: 2 columns instead of 3 ── */
+  .shex-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .shex-card {
+    padding: 12px 6px 10px;
+  }
+
+  .shex-ring-wrap {
+    width: 58px;
+    height: 58px;
+  }
+
+  .shex-label {
+    font-size: 10px;
+  }
+
+  .shex-pct {
+    font-size: 11px;
+  }
+
+  /* ── Logo carousel: fix distortion ── */
+  .logo-carousel-root {
+    gap: 8px;
+  }
+
+  .logo-col-wrap {
+    height: 130px;
+  }
+
+  .logo-col-img {
+    height: 80px;
+    max-width: 90px;
+    border-radius: 16px;
+  }
+
+  .logo-col-name {
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90px;
+  }
+
+  /* ── Portfolio list grid: 1 column on tiny screens ── */
+  .pf-list-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  /* ── Portfolio project cards ── */
+  .pf-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  /* ── Interests interactive grid ── */
+  .interests-tags-flex {
+    gap: 6px;
+  }
+
+  .interest-tag-chip {
+    padding: 9px 12px;
+    font-size: 12px;
+  }
+
+  .interest-viewer-box {
+    padding: 14px;
+    min-height: 180px;
+  }
+
+  /* ── Spline card ── */
+  .spline-card {
+    height: 240px;
+  }
+
+  .spline-el {
+    transform: translate(-50%, -50%) scale(0.42);
+  }
+
+  /* ── Resume filter buttons ── */
+  .res-filter-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+    gap: 4px;
+  }
+
+  /* ── Hobby bubbles ── */
+  .hb-grid {
+    gap: 8px;
+  }
+
+  .hb-bubble {
+    width: 62px;
+    height: 62px;
+    border-radius: 18px;
+  }
+
+  .hb-emoji {
+    font-size: 18px;
+  }
+
+  .hb-label {
+    font-size: 8px;
+  }
+
+  /* ── lmc map card full width ── */
+  .lmc-card {
+    max-width: 100%;
+  }
+
+  /* ── Language switcher position ── */
+  .global-top-lang-switcher {
+    top: 10px;
+    right: 10px;
+  }
+
+}
+
+/* ── Extra small: 375px and below ── */
+@media (max-width: 375px) {
+
+  .sidebar,
+  article {
+    padding: 12px;
+  }
+
+  main {
+    margin: 8px 8px 100px;
+  }
+
+  .info-content .name {
+    font-size: 14px;
+  }
+
+  /* ── About tabs — icon only, hide text ── */
+  .about-tab-label-text {
+    display: none;
+  }
+
+  .about-tab-btn {
+    padding: 8px 10px;
+  }
+
+  /* ── Skills: keep 2 cols but smaller ── */
+  .shex-ring-wrap {
+    width: 50px;
+    height: 50px;
+  }
+
+  .shex-card {
+    padding: 10px 4px 8px;
+  }
+
+  /* ── Logo carousel ── */
+  .logo-col-img {
+    height: 68px;
+    max-width: 76px;
+    border-radius: 12px;
+  }
+
+  .logo-col-wrap {
+    height: 110px;
+  }
+
+  /* ── pf-list 1 col ── */
+  .pf-list-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ── philosophy detail smaller ── */
+  .philosophy-detail-card {
+    min-height: 140px;
+    padding: 14px;
+  }
+
+}
