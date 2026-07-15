@@ -34,17 +34,7 @@ function LocationMapCard() {
             <div
                 ref={cardRef}
                 className={`lmc-card ${expanded ? "lmc-card--exp" : ""}`}
-                onClick={() => {
-                    const next = !expanded;
-                    setExpanded(next);
-                    if (next && cardRef.current) {
-                        const el = cardRef.current;
-                        setTimeout(
-                            () => el.scrollIntoView({ behavior: "smooth", block: "nearest" }),
-                            680
-                        );
-                    }
-                }}
+                onClick={() => setExpanded((prev) => !prev)}
             >
                 {/* sheen */}
                 <div className="lmc-sheen" />

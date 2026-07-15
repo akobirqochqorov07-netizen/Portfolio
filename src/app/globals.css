@@ -343,7 +343,7 @@ main {
 }
 
 .sidebar.active {
-  max-height: 430px;
+  max-height: 1200px;
 }
 
 .sidebar-info {
@@ -1886,7 +1886,7 @@ main {
   }
 
   .sidebar.active {
-    max-height: 584px;
+    max-height: 1200px;
   }
 
   .sidebar-info {
@@ -2475,14 +2475,14 @@ main {
   .sidebar {
     position: sticky;
     top: 0;
-    max-height: calc(100vh - 80px);
+    max-height: none;
     height: auto;
     width: 300px;
     margin-bottom: 0;
     padding-top: 35px;
     padding-bottom: 35px;
     z-index: 1;
-    overflow-y: auto;
+    overflow: visible;
     overscroll-behavior: contain;
     flex-shrink: 0;
   }
@@ -2995,11 +2995,6 @@ main {
 /* About content slides (swipe) */
 .about-content-slider {
   overscroll-behavior-x: contain;
-}
-
-/* Sidebar on mobile when expanded */
-.sidebar {
-  overscroll-behavior: contain;
 }
 
 /* General util — add data-scroll-lock to any element to enable inner scroll */
