@@ -16,8 +16,8 @@ const poppins = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Azamov me",
-  description: "Personal Portfolio clone",
+  title: "Akobir Qo'chqorov",
+  description: "Frontend & Business Analyst — Personal Portfolio",
 };
 
 export default function RootLayout({
