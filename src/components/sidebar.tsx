@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useCallback } from "react";
 import IonIcon from "@/components/ui/ion-icon";
+import LanguageSwitcherInline from "@/components/ui/language-switcher";
 import { useLanguage } from "@/contexts/language-context";
 import { asset } from "@/lib/base-path";
 
@@ -137,6 +138,11 @@ export default function Sidebar() {
                 <div className="info-content">
                     <h1 className="name" title="Akobir Qo'chqorov">Akobir Qo&apos;chqorov</h1>
                     <p className="title">{t.sidebarJobTitle}</p>
+                </div>
+
+                {/* Lang switcher inside sidebar — desktop only visible here */}
+                <div className="sidebar-lang-slot">
+                    <LanguageSwitcherInline />
                 </div>
 
                 <button className="info_more-btn" data-sidebar-btn onClick={() => setActive(!active)}>

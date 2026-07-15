@@ -1341,7 +1341,8 @@ main {
   align-items: flex-start;
   position: relative;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+  overflow: visible;
+  height: auto;
 }
 
 .it-viewer-inner {
@@ -2521,6 +2522,18 @@ main {
     visibility: visible;
   }
 
+  /* Lang switcher: show in sidebar on desktop, hide in navbar */
+  .sidebar-lang-slot {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    width: 100%;
+  }
+
+  .navbar-lang-slot {
+    display: none;
+  }
+
   .contacts-list {
     grid-template-columns: 1fr;
   }
@@ -2623,20 +2636,24 @@ main {
 
 
 /* ============================================================
-   GLOBAL: Language Switcher – top-right corner of the screen
+   GLOBAL: Language Switcher – moved into sidebar (desktop)
+   and navbar (mobile). Fixed floating version removed.
    ============================================================ */
 .global-top-lang-switcher {
-  position: fixed;
-  top: 18px;
-  right: 20px;
-  z-index: 9999;
+  display: none; /* no longer used — lang switcher is in sidebar/navbar */
 }
 
-@media (min-width: 1250px) {
-  .global-top-lang-switcher {
-    top: 28px;
-    right: 44px;
-  }
+/* ── Sidebar lang slot — shows on desktop inside sidebar ── */
+.sidebar-lang-slot {
+  display: none; /* hidden by default, shown on desktop via 1024px query */
+}
+
+/* ── Navbar lang slot — shows on mobile inside navbar ── */
+.navbar-lang-slot {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding-right: 4px;
 }
 
 
@@ -3013,6 +3030,12 @@ main {
   border-radius: 12px;
   overflow: hidden;
   background: var(--smoky-black);
+}
+
+/* Hobbies spline — needs visible overflow so robot isn't clipped */
+.it-media-frame:has(.spline-card) {
+  overflow: visible;
+  background: transparent;
 }
 
 /* Single looping video (AI card) */
@@ -3686,29 +3709,29 @@ main {
    ============================================================ */
 .pf-list-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  grid-template-columns: 1fr;
+  gap: 8px;
   padding: 16px 0 4px;
 }
 
 @media (min-width: 580px) {
-  .pf-list-grid { grid-template-columns: repeat(3, 1fr); }
+  .pf-list-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (min-width: 768px) {
-  .pf-list-grid { grid-template-columns: repeat(5, 1fr); }
+  .pf-list-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Single project row card */
+/* Single project row card — horizontal compact layout */
 .pf-list-card {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 8px;
-  padding: 16px 10px 14px;
+  gap: 12px;
+  padding: 10px 12px;
   background: var(--eerie-black-2);
   border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 18px;
+  border-radius: 14px;
   text-decoration: none;
   cursor: pointer;
   transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
@@ -3722,12 +3745,13 @@ main {
 }
 
 .pf-list-logo {
-  width: 64px;
-  height: 64px;
+  width: 44px;
+  height: 44px;
   object-fit: cover;
-  border-radius: 16px;
+  border-radius: 10px;
   filter: brightness(0.9) saturate(0.8);
   transition: filter 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
 }
 
 .pf-list-card:hover .pf-list-logo {
@@ -3738,32 +3762,35 @@ main {
 .pf-list-meta {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 3px;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
 }
 
 .pf-list-name {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: var(--fw-600);
   color: var(--white-2);
-  text-align: center;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .pf-list-tag {
-  font-size: 9.5px;
+  font-size: 10px;
   color: var(--light-gray-70);
   font-weight: var(--fw-400);
-  text-align: center;
+  text-align: left;
   letter-spacing: 0.3px;
 }
 
 .pf-list-ext {
-  position: absolute;
-  top: 10px;
-  right: 10px;
   color: var(--light-gray-70);
-  opacity: 0;
+  opacity: 0.4;
   transition: opacity 0.2s ease;
+  flex-shrink: 0;
 }
 
 .pf-list-card:hover .pf-list-ext {
@@ -3778,9 +3805,10 @@ main {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 16px 10px 14px;
-  border-radius: 18px;
+  justify-content: flex-start;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
   overflow: hidden;
   cursor: default;
   /* glass base */
@@ -3818,9 +3846,9 @@ main {
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 6px;
+  gap: 10px;
 }
 
 /* three pulsing dots */
@@ -3846,10 +3874,10 @@ main {
 }
 
 .pf-soon-label {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: var(--fw-600);
   color: var(--white-1);
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 .pf-soon-sub {
@@ -4195,6 +4223,27 @@ main {
     margin: 10px 10px 100px;
   }
 
+  /* ── Sidebar: always fully expanded on mobile ── */
+  .sidebar {
+    max-height: none !important;
+    overflow: visible;
+  }
+
+  .sidebar-info_more {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* Hide "show contacts" button on mobile — sidebar always open */
+  .info_more-btn {
+    display: none;
+  }
+
+  /* Hide sidebar lang slot on mobile — it's in navbar */
+  .sidebar-lang-slot {
+    display: none;
+  }
+
   /* ── Sidebar ── */
   .avatar-box {
     width: 120px;
@@ -4339,11 +4388,13 @@ main {
 
   /* ── Spline card ── */
   .spline-card {
-    height: 240px;
+    height: 260px;
+    border-radius: 12px;
+    overflow: hidden;
   }
 
   .spline-el {
-    transform: translate(-50%, -50%) scale(0.42);
+    transform: translate(-50%, -50%) scale(0.46);
   }
 
   /* ── Resume filter buttons ── */

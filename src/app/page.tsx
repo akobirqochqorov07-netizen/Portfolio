@@ -41,6 +41,10 @@ function NavBar({ activeTab, setActiveTab }: {
           </button>
         </li>
       </ul>
+      {/* Lang switcher in navbar — mobile only */}
+      <div className="navbar-lang-slot">
+        <LanguageSwitcher />
+      </div>
     </nav>
   );
 }
@@ -51,10 +55,6 @@ export default function Home() {
   return (
     <LanguageProvider>
       <main>
-        <div className="global-top-lang-switcher">
-          <LanguageSwitcher />
-        </div>
-
         <Sidebar />
         <div className="main-content">
           <NavBar activeTab={activeTab} setActiveTab={setActiveTab} />
