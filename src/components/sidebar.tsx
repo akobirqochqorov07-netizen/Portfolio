@@ -7,7 +7,7 @@ import { asset } from "@/lib/base-path";
 
 const PHOTOS = [
     asset("/assets/images/picture1.jpg"),
-    asset("/assets/images/picture2.jpg"),
+    asset("/assets/images/picture2.webp"),
 ];
 
 /* ─── Interactive Location Map Card ─── */
@@ -34,7 +34,16 @@ function LocationMapCard() {
             <div
                 ref={cardRef}
                 className={`lmc-card ${expanded ? "lmc-card--exp" : ""}`}
-                onClick={() => setExpanded((v) => !v)}
+                onClick={() => {
+                    const next = !expanded;
+                    setExpanded(next);
+                    if (next && cardRef.current) {
+                        setTimeout(
+                            () => cardRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }),
+                            60
+                        );
+                    }
+                }}
             >
                 {/* sheen */}
                 <div className="lmc-sheen" />
