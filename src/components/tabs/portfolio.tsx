@@ -9,27 +9,27 @@ import { ProjectCard } from "@/components/ui/project-card";
 import { asset } from "@/lib/base-path";
 
 const LOGOS: LogoItem[] = [
-    { id: 1, name: "Greenbyte",  img: asset("/assets/images/Greenbyte.png"),  href: "https://akobirqochqorov07-netizen.github.io/GreenByte/" },
-    { id: 2, name: "Bahola",     img: asset("/assets/images/Bahola.png"),     href: "https://akobirqochqorov07-netizen.github.io/Bahola/" },
-    { id: 3, name: "Payfintech", img: asset("/assets/images/Payfintech.png"), href: "https://payfintech.uz/" },
-    { id: 4, name: "SkillSwap",  img: asset("/assets/images/Skillswap.png"),  href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/" },
-    { id: 5, name: "Pully",      img: asset("/assets/images/Pully.png"),      href: "https://pully.uz/" },
-    { id: 6, name: "Arlo",       img: asset("/assets/images/Arlo.png"),       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/" },
-    { id: 7, name: "Intask",     img: asset("/assets/images/Intask.png"),     href: "https://intask.uz/" },
-    { id: 8, name: "Tozago",     img: asset("/assets/images/Tozago.png"),     href: "https://akobirqochqorov07-netizen.github.io/tozago/" },
-    { id: 9, name: "Oxen",       img: asset("/assets/images/Oxen.png"),       href: "https://azimboyevshuxrux-mvp1.rork.app" },
+    { id: 1, name: "Greenbyte",  img: asset("/assets/images/Greenbyte.webp"),  href: "https://akobirqochqorov07-netizen.github.io/GreenByte/" },
+    { id: 2, name: "Bahola",     img: asset("/assets/images/Bahola.webp"),     href: "https://akobirqochqorov07-netizen.github.io/Bahola/" },
+    { id: 3, name: "Payfintech", img: asset("/assets/images/Payfintech.webp"), href: "https://payfintech.uz/" },
+    { id: 4, name: "SkillSwap",  img: asset("/assets/images/Skillswap.webp"),  href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/" },
+    { id: 5, name: "Pully",      img: asset("/assets/images/Pully.webp"),      href: "https://pully.uz/" },
+    { id: 6, name: "Arlo",       img: asset("/assets/images/Arlo.webp"),       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/" },
+    { id: 7, name: "Intask",     img: asset("/assets/images/Intask.webp"),     href: "https://intask.uz/" },
+    { id: 8, name: "Tozago",     img: asset("/assets/images/Tozago.webp"),     href: "https://akobirqochqorov07-netizen.github.io/tozago/" },
+    { id: 9, name: "Oxen",       img: asset("/assets/images/Oxen.webp"),       href: "https://azimboyevshuxrux-mvp1.rork.app" },
 ];
 
 const PROJECTS = [
-    { name: "Greenbyte",  img: asset("/assets/images/Greenbyte.png"),  href: "https://akobirqochqorov07-netizen.github.io/GreenByte/",  tag: "Web App" },
-    { name: "Bahola",     img: asset("/assets/images/Bahola.png"),     href: "https://akobirqochqorov07-netizen.github.io/Bahola/",     tag: "Frontend" },
-    { name: "Payfintech", img: asset("/assets/images/Payfintech.png"), href: "https://payfintech.uz/",                                  tag: "Fintech" },
-    { name: "SkillSwap",  img: asset("/assets/images/Skillswap.png"),  href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/", tag: "Ed-Tech" },
-    { name: "Pully",      img: asset("/assets/images/Pully.png"),      href: "https://pully.uz/",                                      tag: "Fintech" },
-    { name: "Arlo AI",    img: asset("/assets/images/Arlo.png"),       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/",   tag: "AI / SaaS" },
-    { name: "Intask",     img: asset("/assets/images/Intask.png"),     href: "https://intask.uz/",                                     tag: "Productivity" },
-    { name: "Tozago",     img: asset("/assets/images/Tozago.png"),     href: "https://akobirqochqorov07-netizen.github.io/tozago/",    tag: "Services" },
-    { name: "Oxen",       img: asset("/assets/images/Oxen.png"),       href: "https://azimboyevshuxrux-mvp1.rork.app",                 tag: "Mobile" },
+    { name: "Greenbyte",  img: asset("/assets/images/Greenbyte.webp"),  href: "https://akobirqochqorov07-netizen.github.io/GreenByte/",  tag: "Web App" },
+    { name: "Bahola",     img: asset("/assets/images/Bahola.webp"),     href: "https://akobirqochqorov07-netizen.github.io/Bahola/",     tag: "Frontend" },
+    { name: "Payfintech", img: asset("/assets/images/Payfintech.webp"), href: "https://payfintech.uz/",                                  tag: "Fintech" },
+    { name: "SkillSwap",  img: asset("/assets/images/Skillswap.webp"),  href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/", tag: "Ed-Tech" },
+    { name: "Pully",      img: asset("/assets/images/Pully.webp"),      href: "https://pully.uz/",                                      tag: "Fintech" },
+    { name: "Arlo AI",    img: asset("/assets/images/Arlo.webp"),       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/",   tag: "AI / SaaS" },
+    { name: "Intask",     img: asset("/assets/images/Intask.webp"),     href: "https://intask.uz/",                                     tag: "Productivity" },
+    { name: "Tozago",     img: asset("/assets/images/Tozago.webp"),     href: "https://akobirqochqorov07-netizen.github.io/tozago/",    tag: "Services" },
+    { name: "Oxen",       img: asset("/assets/images/Oxen.webp"),       href: "https://azimboyevshuxrux-mvp1.rork.app",                 tag: "Mobile" },
 ];
 
 const CARD_LINKS = [
@@ -43,12 +43,12 @@ const CARD_LINKS = [
 
 const CARD_TITLES = ["Greenbyte", "Bahola", "Payfintech", "SkillSwap", "Pully", "Arlo AI"];
 const CARD_IMGS   = [
-    asset("/assets/images/project01.png"),
-    asset("/assets/images/project02.png"),
-    asset("/assets/images/project03.png"),
-    asset("/assets/images/project04.png"),
-    asset("/assets/images/project05.png"),
-    asset("/assets/images/project06.png"),
+    asset("/assets/images/project01.webp"),
+    asset("/assets/images/project02.webp"),
+    asset("/assets/images/project03.webp"),
+    asset("/assets/images/project04.webp"),
+    asset("/assets/images/project05.webp"),
+    asset("/assets/images/project06.webp"),
 ];
 
 export default function PortfolioTab({ active }: { active: boolean }) {

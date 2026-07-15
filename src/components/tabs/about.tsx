@@ -11,7 +11,7 @@ import { asset } from "@/lib/base-path";
    Auto-rotating carousel (Basketball / Tennis)
    3 videos side by side, auto advances on end
 ───────────────────────────────────────── */
-function VideoCarousel({ srcs }: { srcs: string[] }) {
+function VideoCarousel({ srcs, enabled = true }: { srcs: string[]; enabled?: boolean }) {
     const [current, setCurrent] = useState(0);
     const videoRef = useRef<HTMLVideoElement>(null);
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -39,7 +39,8 @@ function VideoCarousel({ srcs }: { srcs: string[] }) {
             <video
                 ref={videoRef}
                 key={current}
-                src={srcs[current]}
+                src={enabled ? srcs[current] : undefined}
+                preload="none"
                 autoPlay
                 muted
                 playsInline
@@ -243,7 +244,8 @@ export default function AboutTab({ active }: { active: boolean }) {
                                             <video
                                                 ref={videoRefs[i]}
                                                 className="card-bg-video"
-                                                src={asset(`/assets/images/video${[2, 1, 3][i]}.mp4`)}
+                                                src={active ? asset(`/assets/images/video${[2, 1, 3][i]}.mp4`) : undefined}
+                                                preload="none"
                                                 loop muted playsInline
                                             />
                                             <div className="video-glass-overlay" />
@@ -317,24 +319,31 @@ export default function AboutTab({ active }: { active: boolean }) {
                                                 <div className="it-media-frame">
                                                     {activeInterest === "ai" && (
                                                         <video
-                                                            src={asset("/assets/images/video4.mp4")}
+                                                            src={active ? asset("/assets/images/video4.mp4") : undefined}
+                                                            preload="none"
                                                             autoPlay loop muted playsInline
                                                             className="it-single-video"
                                                         />
                                                     )}
                                                     {activeInterest === "basketball" && (
-                                                        <VideoCarousel srcs={[
-                                                            asset("/assets/images/video5.mp4"),
-                                                            asset("/assets/images/video6.mp4"),
-                                                            asset("/assets/images/video7.mp4"),
-                                                        ]} />
+                                                        <VideoCarousel
+                                                            enabled={active}
+                                                            srcs={[
+                                                                asset("/assets/images/video5.mp4"),
+                                                                asset("/assets/images/video6.mp4"),
+                                                                asset("/assets/images/video7.mp4"),
+                                                            ]}
+                                                        />
                                                     )}
                                                     {activeInterest === "tennis" && (
-                                                        <VideoCarousel srcs={[
-                                                            asset("/assets/images/video8.mp4"),
-                                                            asset("/assets/images/video9.mp4"),
-                                                            asset("/assets/images/video10.mp4"),
-                                                        ]} />
+                                                        <VideoCarousel
+                                                            enabled={active}
+                                                            srcs={[
+                                                                asset("/assets/images/video8.mp4"),
+                                                                asset("/assets/images/video9.mp4"),
+                                                                asset("/assets/images/video10.mp4"),
+                                                            ]}
+                                                        />
                                                     )}
                                                     {activeInterest === "hobbies" && (
                                                         <HobbiesBadgeGrid />
