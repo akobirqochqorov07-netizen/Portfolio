@@ -2598,17 +2598,6 @@ main {
     background: var(--jet);
   }
 
-  /* Position language switcher option panels upwards (navbar sits at bottom on mobile) */
-  .navbar .lang-options {
-    top: auto;
-    bottom: calc(100% + 8px);
-    transform: translateY(8px) scale(0.93);
-  }
-
-  .navbar .lang-options--open {
-    transform: translateY(0) scale(1);
-  }
-
   /* main-content: no height restrictions, let content flow naturally */
   .main-content {
     flex: 1;
@@ -4210,6 +4199,19 @@ main {
           logo carousel distortion, spline card sizing,
           philosophy layout, video-service-card height
    ============================================================ */
+
+/* ── Mobile/tablet: navbar is fixed at bottom, open lang panel upward ── */
+@media (max-width: 1023px) {
+  .navbar .lang-options {
+    top: auto;
+    bottom: calc(100% + 8px);
+    transform: translateY(8px) scale(0.93);
+  }
+
+  .navbar .lang-options--open {
+    transform: translateY(0) scale(1);
+  }
+}
 
 @media (max-width: 580px) {
 
