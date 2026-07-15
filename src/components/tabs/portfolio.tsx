@@ -50,14 +50,6 @@ const CARD_IMGS   = [
     asset("/assets/images/project01.webp"),
     asset("/assets/images/project06.webp"),
 ];
-const CARD_VIDEOS = [
-    asset("/assets/images/video1.mp4"),
-    asset("/assets/images/video2.mp4"),
-    asset("/assets/images/video3.mp4"),
-    asset("/assets/images/video4.mp4"),
-    asset("/assets/images/video5.mp4"),
-    asset("/assets/images/video6.mp4"),
-];
 
 export default function PortfolioTab({ active }: { active: boolean }) {
     const { t } = useLanguage();
@@ -149,7 +141,6 @@ export default function PortfolioTab({ active }: { active: boolean }) {
                             key={title}
                             title={title}
                             imgSrc={CARD_IMGS[i]}
-                            videoSrc={CARD_VIDEOS[i]}
                             description={t.portfolioProjectDescs[i] ?? ""}
                             link={CARD_LINKS[i]}
                             linkText={t.portfolioViewBtn}

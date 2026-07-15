@@ -38,9 +38,10 @@ function LocationMapCard() {
                     const next = !expanded;
                     setExpanded(next);
                     if (next && cardRef.current) {
+                        const el = cardRef.current;
                         setTimeout(
-                            () => cardRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }),
-                            60
+                            () => el.scrollIntoView({ behavior: "smooth", block: "nearest" }),
+                            680
                         );
                     }
                 }}

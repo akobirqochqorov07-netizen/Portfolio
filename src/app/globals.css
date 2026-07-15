@@ -3577,32 +3577,6 @@ main {
   transform: scale(1.04);
 }
 
-.pj-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-}
-
-.pj-card:hover .pj-video {
-  transform: none;
-}
-
-/* dim overlay so the video/image reads as a muted background */
-.pj-dim {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.62) 100%);
-  transition: opacity 0.35s ease;
-}
-
-.pj-card:hover .pj-dim {
-  opacity: 0.5;
-}
-
 .pj-content {
   display: flex;
   flex-direction: column;

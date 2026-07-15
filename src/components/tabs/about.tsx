@@ -244,8 +244,7 @@ export default function AboutTab({ active }: { active: boolean }) {
                                             <video
                                                 ref={videoRefs[i]}
                                                 className="card-bg-video"
-                                                src={active ? asset(`/assets/images/video${[2, 1, 3][i]}.mp4`) : undefined}
-                                                preload="none"
+                                                src={asset(`/assets/images/video${[2, 1, 3][i]}.mp4`)}
                                                 loop muted playsInline
                                             />
                                             <div className="video-glass-overlay" />
