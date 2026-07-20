@@ -2477,25 +2477,26 @@ main {
     height: 230px;
   }
 
-  /* Desktop navbar — top-right corner, inside the main content card (restored). */
+  /* Desktop navbar — flush to top-right corner of the card.
+     Inner fill: dark (same tone as card). Outer edge: light --jet line (same as card border). */
   .navbar {
     position: absolute;
-    top: 30px;
+    top: 0;
     bottom: auto;
     left: auto;
-    right: 25px;
+    right: 0;
     width: auto;
-    border-radius: 0 20px;
+    border: 1px solid var(--jet);
+    border-top: none;
+    border-right: none;
+    border-radius: 0 20px 0 0;
     padding: 0 28px;
     box-shadow: none;
     display: flex;
     align-items: center;
     gap: 16px;
     height: 62px;
-    background: var(--smoky-black);
-    border-bottom: 1px solid var(--jet);
-    border-left: 1px solid var(--jet);
-    border-top: none;
+    background: var(--eerie-black-2);
     z-index: 100;
   }
 
@@ -2531,7 +2532,7 @@ main {
     max-height: none;
     height: auto;
     overflow: visible;
-    padding: 30px 25px;
+    padding: 92px 25px 30px;
     box-sizing: border-box;
   }
 
@@ -4242,13 +4243,14 @@ main {
   /* ── Philosophy items ── */
   .philosophy-item {
     padding: 10px 12px;
-    gap: 10px;
+    gap: 15px;
     border-radius: 14px;
+    align-items: center;
   }
 
   .ph-icon-circle {
-    width: 36px;
-    height: 36px;
+    width: 44px;
+    height: 44px;
     flex-shrink: 0;
   }
 
@@ -4265,11 +4267,20 @@ main {
     font-size: 12px;
   }
 
-  /* ── Video service cards — fix fixed height clipping text ── */
+  /* ── Video service cards on mobile: video fully visible, no clipping, no hover-zoom ── */
   .video-service-card {
     height: auto;
-    min-height: 200px;
+    min-height: 220px;
     padding: 18px;
+    overflow: hidden;
+  }
+
+  .card-video-container {
+    opacity: 0.4;
+  }
+
+  .card-bg-video {
+    transform: none;
   }
 
   .svc-item-title {
