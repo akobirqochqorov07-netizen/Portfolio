@@ -46,7 +46,7 @@ const CARD_TITLES = [
 ];
 const CARD_IMGS = [
     asset("/assets/images/project04.webp"),
-    asset("/assets/images/Tozago.webp"),
+    asset("/assets/images/project02.webp"),
     asset("/assets/images/project05.webp"),
     asset("/assets/images/project03.webp"),
     asset("/assets/images/project01.webp"),
