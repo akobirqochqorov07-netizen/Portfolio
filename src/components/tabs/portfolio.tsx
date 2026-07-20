@@ -34,7 +34,7 @@ const PROJECTS = [
 
 const CARD_LINKS = [
     "https://akobirqochqorov07-netizen.github.io/GreenByte/",
-    "https://akobirqochqorov07-netizen.github.io/Bahola/",
+    "https://akobirqochqorov07-netizen.github.io/tozago/",
     "https://payfintech.uz/",
     "https://akobirqochqorov07-netizen.github.io/SkillSwap2/",
     "https://pully.uz/",
@@ -42,11 +42,11 @@ const CARD_LINKS = [
 ];
 
 const CARD_TITLES = [
-    "Greenbyte", "Bahola", "Payfintech", "SkillSwap", "Pully", "Arlo AI",
+    "Greenbyte", "Tozago", "Payfintech", "SkillSwap", "Pully", "Arlo AI",
 ];
 const CARD_IMGS = [
     asset("/assets/images/project04.webp"),
-    asset("/assets/images/project02.webp"),
+    asset("/assets/images/Tozago.webp"),
     asset("/assets/images/project05.webp"),
     asset("/assets/images/project03.webp"),
     asset("/assets/images/project01.webp"),

@@ -155,6 +155,8 @@ body {
   /* Firefox */
   -ms-overflow-style: none;
   /* IE/Edge */
+  overflow-y: auto;
+  height: auto;
 }
 
 html::-webkit-scrollbar,
@@ -178,7 +180,7 @@ article {
   border: 1px solid var(--jet);
   border-radius: 20px;
   padding: 15px;
-  box-shadow: var(--shadow-1);
+  box-shadow: none;
   z-index: 1;
 }
 
@@ -186,7 +188,7 @@ article {
   width: 100%;
   height: 1px;
   background: var(--jet);
-  margin: 16px 0;
+  margin: 12px 0;
 }
 
 .icon-box {
@@ -224,7 +226,7 @@ article {
 article.active {
   display: block;
   animation: fade 0.5s ease backwards;
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 @keyframes fade {
@@ -337,13 +339,19 @@ main {
 
 .sidebar {
   margin-bottom: 15px;
-  max-height: 130px;
-  overflow: hidden;
+  max-height: none;
+  overflow: visible;
   transition: var(--transition-2);
 }
 
 .sidebar.active {
-  max-height: 1200px;
+  max-height: none;
+}
+
+/* Always-open sidebar variant (no collapse button) */
+.sidebar--always-open {
+  max-height: none !important;
+  overflow: visible !important;
 }
 
 .sidebar-info {
@@ -457,32 +465,45 @@ main {
 }
 
 .sidebar-info_more {
-  opacity: 0;
-  visibility: hidden;
-  transition: var(--transition-2);
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.sidebar-info_more-inner {
+  min-height: 0;
+  overflow: hidden;
 }
 
 .sidebar.active .sidebar-info_more {
-  opacity: 1;
-  visibility: visible;
+  grid-template-rows: 1fr;
+}
+
+/* Always-visible variant */
+.sidebar-info_more--visible {
+  display: block;
+  overflow: visible;
 }
 
 .contacts-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 16px;
+  gap: 12px;
 }
 
 .contact-item {
   min-width: 100%;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .contact-info {
-  max-width: calc(100% - 46px);
-  width: calc(100% - 46px);
+  max-width: calc(100% - 42px);
+  width: calc(100% - 42px);
+  min-width: 0;
+  overflow: hidden;
 }
 
 .contact-title {
@@ -495,6 +516,10 @@ main {
 .contact-info :is(.contact-link, time, address) {
   color: var(--white-2);
   font-size: var(--fs-7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
 }
 
 .contact-info address {
@@ -530,8 +555,8 @@ main {
   bottom: 0;
   left: 0;
   width: 100%;
-  background: hsla(240, 1%, 17%, 0.75);
-  backdrop-filter: blur(10px);
+  background: hsla(240, 1%, 17%, 0.92);
+  backdrop-filter: blur(12px);
   border: 1px solid var(--jet);
   border-radius: 12px 12px 0 0;
   box-shadow: var(--shadow-2);
@@ -539,7 +564,8 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 15px;
+  padding: 0 12px 0 6px;
+  gap: 0;
 }
 
 .navbar-list {
@@ -558,9 +584,10 @@ main {
 
 .navbar-link {
   color: var(--light-gray);
-  font-size: var(--fs-8);
-  padding: 20px 7px;
+  font-size: 12px;
+  padding: 18px 6px;
   transition: color var(--transition-1);
+  white-space: nowrap;
 }
 
 .navbar-link:hover,
@@ -595,6 +622,7 @@ main {
 .about-social {
   margin-top: 25px;
   padding-top: 20px;
+  padding-bottom: 20px;
   border-top: 1px solid var(--jet);
 }
 
@@ -625,6 +653,7 @@ main {
   overflow: hidden;
   color: var(--white-2);
   z-index: 1;
+  white-space: nowrap;
 }
 
 .about-social-btn::after {
@@ -836,17 +865,20 @@ main {
 .about-content-slider {
   overflow: hidden;
   border-radius: 14px;
+  touch-action: pan-y;
 }
 
 .about-content-track {
   display: flex;
   transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  touch-action: pan-y;
 }
 
 .about-content-slide {
   min-width: 100%;
   width: 100%;
   flex-shrink: 0;
+  touch-action: pan-y;
 }
 
 /* Interactive About Me Section */
@@ -1095,15 +1127,15 @@ main {
   border-radius: 20px;
   padding: 24px;
   overflow: hidden;
-  height: 280px;
-  /* fixed height for absolute alignments */
+  height: 380px;
+  /* taller so video is fully visible */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  will-change: transform, border-color, box-shadow;
+  box-shadow: none;
+  will-change: transform, border-color;
 }
 
 .card-video-container {
@@ -1176,7 +1208,7 @@ main {
 .video-service-card:hover {
   transform: translateY(-6px);
   border-color: rgba(255, 188, 94, 0.45);
-  box-shadow: 0 12px 30px rgba(255, 188, 94, 0.15), 0 4px 10px rgba(0, 0, 0, 0.4);
+  box-shadow: none;
 }
 
 .video-service-card:hover .card-video-container {
@@ -1243,7 +1275,8 @@ main {
 .interests-showcase-container {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
+  padding-bottom: 0;
 }
 
 .interests-subtitle {
@@ -1256,27 +1289,26 @@ main {
 .interests-interactive-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 16px;
 }
 
 @media (min-width: 768px) {
   .interests-interactive-grid {
-    grid-template-columns: 240px 1fr;
-    gap: 24px;
+    grid-template-columns: 220px 1fr;
+    gap: 20px;
     align-items: start;
   }
 }
 
 .interests-tags-flex {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }
 
 @media (min-width: 768px) {
   .interests-tags-flex {
-    flex-direction: column;
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
 }
@@ -1284,40 +1316,90 @@ main {
 .interest-tag-chip {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 12px 18px;
+  justify-content: center;
+  gap: 8px;
+  padding: 18px 12px 14px;
   background: var(--eerie-black-3);
-  border: 1px solid var(--jet);
-  border-radius: 14px;
+  border: 1.5px solid var(--jet);
+  border-radius: 20px;
   cursor: pointer;
-  text-align: left;
+  text-align: center;
   color: var(--light-gray-70);
-  font-size: var(--fs-6);
+  font-size: var(--fs-8);
   font-weight: var(--fw-400);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   z-index: 1;
+  min-height: 90px;
 }
+
+/* AI — full-width featured row */
+.interest-tag-chip:nth-child(1) {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 14px;
+  padding: 16px 20px;
+  min-height: 64px;
+  border-radius: 18px;
+}
+.interest-tag-chip:nth-child(1) .it-emoji { font-size: 32px; }
+.interest-tag-chip:nth-child(1) .it-label {
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  text-align: left;
+}
+
+/* Basketball — unique corner */
+.interest-tag-chip:nth-child(2) { border-radius: 20px 8px 20px 20px; }
+
+/* Tennis — unique corner */
+.interest-tag-chip:nth-child(3) { border-radius: 8px 20px 20px 20px; }
+
+/* Multi-hobby — full-width muted dashed */
+.interest-tag-chip:nth-child(4) {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 14px;
+  padding: 13px 20px;
+  min-height: 52px;
+  opacity: 0.72;
+  border-radius: 12px;
+  border-style: dashed;
+}
+.interest-tag-chip:nth-child(4) .it-emoji { font-size: 20px; }
+.interest-tag-chip:nth-child(4) .it-label { font-size: var(--fs-7); text-align: left; }
+
+/* Active states */
+.interest-tag-chip:nth-child(1).active { border-color: #a78bfa; color: #a78bfa; border-style: solid; }
+.interest-tag-chip:nth-child(2).active { border-color: #fb923c; color: #fb923c; }
+.interest-tag-chip:nth-child(3).active { border-color: #34d399; color: #34d399; }
+.interest-tag-chip:nth-child(4).active { border-color: #60a5fa; color: #60a5fa; opacity: 1; border-style: solid; }
+
+.interest-tag-chip:nth-child(1).active .it-chip-active-bg { background: rgba(167, 139, 250, 0.07); }
+.interest-tag-chip:nth-child(2).active .it-chip-active-bg { background: rgba(251, 146, 60, 0.07); }
+.interest-tag-chip:nth-child(3).active .it-chip-active-bg { background: rgba(52, 211, 153, 0.07); }
+.interest-tag-chip:nth-child(4).active .it-chip-active-bg { background: rgba(96, 165, 250, 0.07); }
 
 .interest-tag-chip:hover {
-  border-color: rgba(255, 188, 94, 0.3);
+  border-color: rgba(255, 255, 255, 0.22);
   color: var(--white-1);
-}
-
-.interest-tag-chip.active {
-  border-color: var(--orange-yellow-crayola);
-  color: var(--orange-yellow-crayola);
-  font-weight: var(--fw-500);
+  opacity: 1;
 }
 
 .it-emoji {
-  font-size: 16px;
+  font-size: 26px;
   z-index: 2;
+  line-height: 1;
 }
 
 .it-label {
   z-index: 2;
+  line-height: 1.3;
+  font-size: var(--fs-8);
 }
 
 .it-chip-active-bg {
@@ -1336,13 +1418,11 @@ main {
   border: 1px solid var(--jet);
   border-radius: 20px;
   padding: 20px;
-  min-height: 220px;
   display: flex;
   align-items: flex-start;
   position: relative;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
   overflow: visible;
-  height: auto;
 }
 
 .it-viewer-inner {
@@ -1882,12 +1962,12 @@ main {
      * #SIDEBAR
      */
   .sidebar {
-    max-height: 200px;
+    max-height: none;
     margin-bottom: 30px;
   }
 
   .sidebar.active {
-    max-height: 1200px;
+    max-height: none;
   }
 
   .sidebar-info {
@@ -2184,15 +2264,6 @@ main {
     gap: 30px 15px;
   }
 
-  .info_more-btn {
-    display: none;
-  }
-
-  .sidebar-info_more {
-    opacity: 1;
-    visibility: visible;
-  }
-
 
   /**
      * NAVBAR
@@ -2299,6 +2370,132 @@ main {
      */
   .sidebar,
   article {
+    width: 950px;
+    box-shadow: var(--shadow-5);
+  }
+
+
+  /**
+     * MAIN
+     */
+  main {
+    margin-bottom: 80px;
+  }
+
+  .main-content {
+    position: relative;
+    width: max-content;
+    margin: auto;
+  }
+
+
+  /**
+     * NAVBAR
+     */
+  .navbar {
+    position: absolute;
+    bottom: auto;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: max-content;
+    border-radius: 0 20px;
+    padding: 0 20px;
+    box-shadow: none;
+  }
+
+  .navbar-list {
+    gap: 30px;
+    /* padding: 20px; */
+  }
+
+  .navbar-link {
+    font-weight: var(--fw-500);
+  }
+
+
+  /**
+     * ABOUT
+     */
+  /* service */
+  .service-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 25px;
+  }
+
+  /* testimonials */
+  .testimonials-item {
+    min-width: calc(50% - 15px);
+  }
+
+  /* clients */
+  .clients-item {
+    min-width: calc(25% - 38px);
+  }
+
+
+  /**
+     * PORTFOLIO
+     */
+  .project-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+  /**
+     * BLOG
+     */
+  .blog-banner-box {
+    height: 230px;
+  }
+
+}
+
+
+/**
+ * responsive larger than 1250px screen
+ */
+
+@media (min-width: 1250px) {
+
+  /**
+     * RESET
+     */
+  html,
+  body {
+    overflow-x: hidden;
+    height: auto;
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: var(--smoky-black);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background: var(--jet);
+    border-radius: 4px;
+  }
+
+  body::-webkit-scrollbar-thumb:hover {
+    background: var(--orange-yellow-crayola);
+  }
+
+  body::-webkit-scrollbar-button {
+    display: none;
+  }
+
+
+  /**
+     * REUSED STYLE
+     */
+  .sidebar,
+  article {
     width: auto;
   }
 
@@ -2359,9 +2556,9 @@ main {
   .sidebar {
     position: sticky;
     top: 0;
-    max-height: none;
+    max-height: calc(100vh - 80px);
     height: auto;
-    width: clamp(260px, 22vw, 300px);
+    width: 300px;
     margin-bottom: 0;
     padding-top: 35px;
     padding-bottom: 35px;
@@ -2401,19 +2598,16 @@ main {
   }
 
   .sidebar-info_more {
-    opacity: 1;
-    visibility: visible;
+    grid-template-rows: 1fr;
+    overflow: visible;
   }
 
-  /* Lang switcher: show in sidebar on desktop, hide in navbar */
+  .sidebar-info_more-inner {
+    overflow: visible;
+  }
+
+  /* Hide lang switcher in sidebar on desktop — it lives in navbar */
   .sidebar-lang-slot {
-    display: flex;
-    justify-content: center;
-    margin-top: 8px;
-    width: 100%;
-  }
-
-  .navbar-lang-slot {
     display: none;
   }
 
@@ -2443,69 +2637,35 @@ main {
 
 
   /**
-     * ABOUT
-     */
-  /* service */
-  .service-list {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px 25px;
+       * RESUME
+       */
+  .timeline-text {
+    max-width: 700px;
   }
 
-  /* testimonials */
-  .testimonials-item {
-    min-width: calc(50% - 15px);
-  }
-
-  /* clients */
-  .clients-item {
-    min-width: calc(25% - 38px);
-  }
-
-
-  /**
-     * PORTFOLIO
-     */
-  .project-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-
-  /**
-     * BLOG
-     */
-  .blog-banner-box {
-    height: 230px;
-  }
-
-  /* Desktop navbar — flush to top-right corner of the card.
-     Inner fill: dark (same tone as card). Outer edge: light --jet line (same as card border). */
+  /* Desktop overrides for top-right navbar alignment and dropdown downwards */
   .navbar {
     position: absolute;
-    top: 0;
     bottom: auto;
+    top: 0;
     left: auto;
     right: 0;
     width: auto;
-    border: 1px solid var(--jet);
-    border-top: none;
-    border-right: none;
-    border-radius: 0 20px 0 0;
-    padding: 0 28px;
+    border-radius: 0 20px;
+    padding: 0 20px;
     box-shadow: none;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
     height: 62px;
-    background: var(--eerie-black-2);
+    background: var(--eerie-black-1);
+    border-bottom: 1px solid var(--jet);
+    border-left: 1px solid var(--jet);
     z-index: 100;
   }
 
   .navbar-list {
-    gap: 36px;
-  }
-
-  .navbar-lang-slot {
-    margin-left: 20px;
+    gap: 24px;
   }
 
   .navbar-divider {
@@ -2515,9 +2675,26 @@ main {
     background: var(--jet);
   }
 
-  /* main-content: no height restrictions, let content flow naturally */
+  /* Position language switcher option panels downwards */
+  .navbar .lang-options {
+    top: calc(100% + 8px);
+    bottom: auto;
+    transform: translateY(-8px) scale(0.93);
+  }
+
+  .navbar .lang-options--open {
+    transform: translateY(0) scale(1);
+  }
+
+  /* Inline lang switcher inside navbar */
+  .navbar-lang-inline {
+    display: flex;
+    align-items: center;
+    margin-left: 4px;
+    border-left: 1px solid var(--jet);
+    padding-left: 12px;
+  }
   .main-content {
-    position: relative;
     flex: 1;
     min-width: 0;
     margin: 0;
@@ -2532,86 +2709,38 @@ main {
     max-height: none;
     height: auto;
     overflow: visible;
-    padding: 92px 25px 30px;
+    padding: 30px 25px 40px;
     box-sizing: border-box;
   }
 
   article.active {
     display: block;
   }
-
-}
-
-
-/**
- * responsive larger than 1250px screen
- */
-
-@media (min-width: 1250px) {
-
-  /**
-     * RESET
-     */
-  html,
-  body {
-    overflow-x: hidden;
-    height: auto;
-    max-height: none;
-    overflow-y: auto;
-  }
-
-  body::-webkit-scrollbar {
-    display: none;
-  }
-
-  body::-webkit-scrollbar-track {
-    background: var(--smoky-black);
-  }
-
-  body::-webkit-scrollbar-thumb {
-    background: var(--jet);
-    border-radius: 4px;
-  }
-
-  body::-webkit-scrollbar-thumb:hover {
-    background: var(--orange-yellow-crayola);
-  }
-
-  body::-webkit-scrollbar-button {
-    display: none;
-  }
-
-
-  /**
-     * RESUME
-     */
-  .timeline-text {
-    max-width: 700px;
-  }
-
 }
 
 
 /* ============================================================
-   GLOBAL: Language Switcher – moved into sidebar (desktop)
-   and navbar (mobile). Fixed floating version removed.
+   GLOBAL: Language Switcher – always visible in navbar
    ============================================================ */
-.global-top-lang-switcher {
-  display: none; /* no longer used — lang switcher is in sidebar/navbar */
+.navbar-lang-inline {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  border-left: 1px solid var(--jet);
+  padding-left: 10px;
+  margin-left: 4px;
 }
 
-/* ── Sidebar lang slot — shows on desktop inside sidebar ── */
-.sidebar-lang-slot {
-  display: none; /* hidden by default, shown on desktop via 1024px query */
-}
-
-  /* ── Navbar lang slot — shows on mobile inside navbar ── */
-  .navbar-lang-slot {
+@media (min-width: 1024px) {
+  .navbar-lang-inline {
     display: flex;
     align-items: center;
-    margin-left: auto;
-    padding-right: 4px;
+    margin-left: 4px;
+    border-left: 1px solid var(--jet);
+    padding-left: 12px;
   }
+}
+
 
 /* ============================================================
    GLOBAL: Resume Skills Dials
@@ -2750,14 +2879,8 @@ main {
 .resume-header-flex {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
   margin-bottom: 25px;
-}
-
-@media (min-width: 768px) {
-  .resume-header-flex {
-    align-items: flex-start;
-  }
 }
 
 .resume-filter-controls {
@@ -2876,27 +2999,9 @@ main {
    ============================================================ */
 .interest-viewer-scrollable-content {
   width: 100%;
-  overflow-y: auto;
-  padding-right: 4px;
+  padding-right: 0;
   box-sizing: border-box;
-  overscroll-behavior: contain;
-}
-
-.interest-viewer-scrollable-content::-webkit-scrollbar {
-  width: 3.5px;
-}
-
-.interest-viewer-scrollable-content::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.interest-viewer-scrollable-content::-webkit-scrollbar-thumb {
-  background: var(--jet);
-  border-radius: 4px;
-}
-
-.interest-viewer-scrollable-content::-webkit-scrollbar-thumb:hover {
-  background: var(--orange-yellow-crayola);
+  overflow: visible;
 }
 
 .it-header-group {
@@ -2966,6 +3071,13 @@ main {
 /* About content slides (swipe) */
 .about-content-slider {
   overscroll-behavior-x: contain;
+  touch-action: pan-y;
+}
+
+/* Sidebar on mobile when expanded */
+.sidebar {
+  overscroll-behavior: contain;
+  touch-action: pan-y;
 }
 
 /* General util — add data-scroll-lock to any element to enable inner scroll */
@@ -2984,12 +3096,7 @@ main {
   border-radius: 12px;
   overflow: hidden;
   background: var(--smoky-black);
-}
-
-/* Hobbies spline — needs visible overflow so robot isn't clipped */
-.it-media-frame:has(.spline-card) {
-  overflow: visible;
-  background: transparent;
+  touch-action: pan-y;
 }
 
 /* Single looping video (AI card) */
@@ -3009,6 +3116,7 @@ main {
   border-radius: 12px;
   overflow: hidden;
   background: #000;
+  touch-action: pan-y;
 }
 
 .ivc-video {
@@ -3663,29 +3771,29 @@ main {
    ============================================================ */
 .pf-list-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 8px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
   padding: 16px 0 4px;
 }
 
 @media (min-width: 580px) {
-  .pf-list-grid { grid-template-columns: repeat(2, 1fr); }
+  .pf-list-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (min-width: 768px) {
-  .pf-list-grid { grid-template-columns: repeat(2, 1fr); }
+  .pf-list-grid { grid-template-columns: repeat(5, 1fr); }
 }
 
-/* Single project row card — horizontal compact layout */
+/* Single project row card */
 .pf-list-card {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 10px 12px;
+  gap: 8px;
+  padding: 16px 10px 14px;
   background: var(--eerie-black-2);
   border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 14px;
+  border-radius: 18px;
   text-decoration: none;
   cursor: pointer;
   transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
@@ -3699,13 +3807,12 @@ main {
 }
 
 .pf-list-logo {
-  width: 44px;
-  height: 44px;
+  width: 64px;
+  height: 64px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 16px;
   filter: brightness(0.9) saturate(0.8);
   transition: filter 0.25s ease, transform 0.25s ease;
-  flex-shrink: 0;
 }
 
 .pf-list-card:hover .pf-list-logo {
@@ -3716,35 +3823,32 @@ main {
 .pf-list-meta {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
-  flex: 1;
-  min-width: 0;
+  align-items: center;
+  gap: 3px;
 }
 
 .pf-list-name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: var(--fw-600);
   color: var(--white-2);
-  text-align: left;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: center;
 }
 
 .pf-list-tag {
-  font-size: 10px;
+  font-size: 9.5px;
   color: var(--light-gray-70);
   font-weight: var(--fw-400);
-  text-align: left;
+  text-align: center;
   letter-spacing: 0.3px;
 }
 
 .pf-list-ext {
+  position: absolute;
+  top: 10px;
+  right: 10px;
   color: var(--light-gray-70);
-  opacity: 0.4;
+  opacity: 0;
   transition: opacity 0.2s ease;
-  flex-shrink: 0;
 }
 
 .pf-list-card:hover .pf-list-ext {
@@ -3759,10 +3863,9 @@ main {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 12px;
-  padding: 10px 12px;
-  border-radius: 14px;
+  justify-content: center;
+  padding: 16px 10px 14px;
+  border-radius: 18px;
   overflow: hidden;
   cursor: default;
   /* glass base */
@@ -3800,9 +3903,9 @@ main {
   position: relative;
   z-index: 1;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
 }
 
 /* three pulsing dots */
@@ -3828,10 +3931,10 @@ main {
 }
 
 .pf-soon-label {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: var(--fw-600);
   color: var(--white-1);
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
 }
 
 .pf-soon-sub {
@@ -3877,7 +3980,7 @@ main {
 /* ── Card ── */
 .lmc-card {
   width: 100%;
-  max-width: 280px;
+  max-width: 100%;
   height: 130px;
   background: #0d0d0d;
   border: 1px solid rgba(255,255,255,0.1);
@@ -4155,355 +4258,4 @@ main {
   color: rgba(255,255,255,0.35);
   font-family: monospace;
   letter-spacing: 0.3px;
-}
-
-
-/* ============================================================
-   MOBILE OPTIMIZATIONS — max-width 580px
-   Fixes: card overflow, cramped grids, tab button nowrap,
-          logo carousel distortion, spline card sizing,
-          philosophy layout, video-service-card height
-   ============================================================ */
-
-/* ── Mobile/tablet: navbar is fixed at bottom, open lang panel upward ── */
-@media (max-width: 1023px) {
-  .navbar .lang-options {
-    top: auto;
-    bottom: calc(100% + 8px);
-    transform: translateY(8px) scale(0.93);
-  }
-
-  .navbar .lang-options--open {
-    transform: translateY(0) scale(1);
-  }
-}
-
-@media (max-width: 580px) {
-
-  /* ── Base padding for articles ── */
-  .sidebar,
-  article {
-    padding: 16px;
-  }
-
-  main {
-    margin: 10px 10px 100px;
-  }
-
-  /* ── Sidebar: always fully expanded on mobile ── */
-  .sidebar {
-    max-height: none !important;
-    overflow: visible;
-  }
-
-  .sidebar-info_more {
-    opacity: 1 !important;
-    visibility: visible !important;
-  }
-
-  /* Hide "show contacts" button on mobile — sidebar always open */
-  .info_more-btn {
-    display: none;
-  }
-
-  /* Hide sidebar lang slot on mobile — it's in navbar */
-  .sidebar-lang-slot {
-    display: none;
-  }
-
-  /* ── Sidebar ── */
-  .avatar-box {
-    width: 120px;
-    height: 160px;
-  }
-
-  .info-content .name {
-    font-size: 15px;
-  }
-
-  /* ── About inner tabs ── */
-  .about-inner-tabs {
-    padding: 3px;
-    gap: 3px;
-  }
-
-  .about-tab-btn {
-    padding: 8px 6px;
-    font-size: 11px;
-    gap: 4px;
-  }
-
-  .about-tab-label-text {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 72px;
-  }
-
-  /* ── Philosophy items ── */
-  .philosophy-item {
-    padding: 10px 12px;
-    gap: 15px;
-    border-radius: 14px;
-    align-items: center;
-  }
-
-  .ph-icon-circle {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
-  }
-
-  .philosophy-detail-card {
-    padding: 16px;
-    min-height: 160px;
-  }
-
-  .ph-card-title {
-    font-size: 15px;
-  }
-
-  .ph-card-desc {
-    font-size: 12px;
-  }
-
-  /* ── Video service cards on mobile: video fully visible, no clipping, no hover-zoom ── */
-  .video-service-card {
-    height: auto;
-    min-height: 220px;
-    padding: 18px;
-    overflow: hidden;
-  }
-
-  .card-video-container {
-    opacity: 0.4;
-  }
-
-  .card-bg-video {
-    transform: none;
-  }
-
-  .svc-item-title {
-    font-size: 13px;
-  }
-
-  .svc-item-text {
-    font-size: 12px;
-  }
-
-  /* ── Skills ring grid: 2 columns instead of 3 ── */
-  .shex-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-
-  .shex-card {
-    padding: 12px 6px 10px;
-  }
-
-  .shex-ring-wrap {
-    width: 58px;
-    height: 58px;
-  }
-
-  .shex-label {
-    font-size: 10px;
-  }
-
-  .shex-pct {
-    font-size: 11px;
-  }
-
-  /* ── Logo carousel: fix distortion ── */
-  .logo-carousel-root {
-    gap: 8px;
-  }
-
-  .logo-col-wrap {
-    height: 130px;
-  }
-
-  .logo-col-img {
-    height: 80px;
-    max-width: 90px;
-    border-radius: 16px;
-  }
-
-  .logo-col-name {
-    font-size: 10px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 90px;
-  }
-
-  /* ── Portfolio list grid: 1 column on tiny screens ── */
-  .pf-list-grid {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  /* ── Portfolio project cards ── */
-  .pf-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  /* ── Interests interactive grid ── */
-  .interests-tags-flex {
-    gap: 6px;
-  }
-
-  .interest-tag-chip {
-    padding: 9px 12px;
-    font-size: 12px;
-  }
-
-  .interest-viewer-box {
-    padding: 14px;
-    min-height: 180px;
-  }
-
-  /* ── Spline card ── */
-  .spline-card {
-    height: 260px;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .spline-el {
-    transform: translate(-50%, -50%) scale(0.46);
-  }
-
-  /* ── Resume filter buttons ── */
-  .res-filter-btn {
-    padding: 6px 10px;
-    font-size: 11px;
-    gap: 4px;
-  }
-
-  /* ── Hobby bubbles ── */
-  .hb-grid {
-    gap: 8px;
-  }
-
-  .hb-bubble {
-    width: 62px;
-    height: 62px;
-    border-radius: 18px;
-  }
-
-  .hb-emoji {
-    font-size: 18px;
-  }
-
-  .hb-label {
-    font-size: 8px;
-  }
-
-  /* ── lmc map card full width ── */
-  .lmc-card {
-    max-width: 100%;
-  }
-
-  /* ── Language switcher position ── */
-  .global-top-lang-switcher {
-    top: 10px;
-    right: 10px;
-  }
-
-}
-
-/* ── Extra small: 375px and below ── */
-@media (max-width: 375px) {
-
-  .sidebar,
-  article {
-    padding: 12px;
-  }
-
-  main {
-    margin: 8px 8px 100px;
-  }
-
-  .info-content .name {
-    font-size: 14px;
-  }
-
-  /* ── About tabs — icon only, hide text ── */
-  .about-tab-label-text {
-    display: none;
-  }
-
-  .about-tab-btn {
-    padding: 8px 10px;
-  }
-
-  /* ── Skills: keep 2 cols but smaller ── */
-  .shex-ring-wrap {
-    width: 50px;
-    height: 50px;
-  }
-
-  .shex-card {
-    padding: 10px 4px 8px;
-  }
-
-  /* ── Logo carousel ── */
-  .logo-carousel-root {
-    gap: 10px;
-    align-items: stretch;
-  }
-
-  .logo-col-wrap {
-    height: 150px;
-    flex: 1;
-    max-width: none;
-    margin: 0;
-    width: 100%;
-  }
-
-  .logo-col-img {
-    height: 96px;
-    max-width: 120px;
-    border-radius: 18px;
-  }
-
-  .logo-col-name {
-    font-size: 12px;
-  }
-
-  /* ── pf-list 1 col ── */
-  .pf-list-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* ── pf-cards full width on extra small ── */
-  .pf-cards-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .pj-img-wrap {
-    aspect-ratio: 16 / 10;
-  }
-
-  .pj-content {
-    padding: 16px 16px 18px;
-    gap: 8px;
-  }
-
-  .pj-title {
-    font-size: 16px;
-  }
-
-  .pj-desc {
-    font-size: 13px;
-  }
-
-  /* ── philosophy detail smaller ── */
-  .philosophy-detail-card {
-    min-height: 140px;
-    padding: 14px;
-  }
-
 }

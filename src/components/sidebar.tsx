@@ -2,7 +2,6 @@
 
 import React, { useState, useRef, useCallback } from "react";
 import IonIcon from "@/components/ui/ion-icon";
-import LanguageSwitcherInline from "@/components/ui/language-switcher";
 import { useLanguage } from "@/contexts/language-context";
 import { asset } from "@/lib/base-path";
 
@@ -117,13 +116,12 @@ function LocationMapCard() {
 
 export default function Sidebar() {
     const { t } = useLanguage();
-    const [active, setActive] = useState(false);
     const [photoIndex, setPhotoIndex] = useState(0);
 
     const togglePhoto = () => setPhotoIndex((prev) => (prev + 1) % PHOTOS.length);
 
     return (
-        <aside className={`sidebar ${active ? "active" : ""}`} data-sidebar>
+        <aside className="sidebar sidebar--always-open" data-sidebar>
             <div className="sidebar-info">
                 <figure className="avatar-box" onClick={togglePhoto} title="Click to change photo">
                     <img
@@ -139,19 +137,9 @@ export default function Sidebar() {
                     <h1 className="name" title="Akobir Qo'chqorov">Akobir Qo&apos;chqorov</h1>
                     <p className="title">{t.sidebarJobTitle}</p>
                 </div>
-
-                {/* Lang switcher inside sidebar — desktop only visible here */}
-                <div className="sidebar-lang-slot">
-                    <LanguageSwitcherInline />
-                </div>
-
-                <button className="info_more-btn" data-sidebar-btn onClick={() => setActive(!active)}>
-                    <span>{t.sidebarShowContacts}</span>
-                    <IonIcon name="chevron-down" />
-                </button>
             </div>
 
-            <div className="sidebar-info_more">
+            <div className="sidebar-info_more sidebar-info_more--visible">
                 <div className="separator" />
 
                 <ul className="contacts-list">

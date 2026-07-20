@@ -105,7 +105,7 @@ export const translations: Record<Lang, Translations> = {
         portfolioSoonSub: "New project incoming",
         portfolioProjectDescs: [
             "Energy analytics platform with real-time data visualization and a responsive dark-mode dashboard.",
-            "Service booking & management platform with provider profiles, smart scheduling, and a clean client-facing interface.",
+            "Online travel booking platform for Uzbekistan destinations with tour packages, guides, and seamless reservation flow.",
             "Modern banking interface with transaction flows, card management widgets, and secure form patterns.",
             "Task & productivity workspace with boards, reminders, and a focus-first, distraction-free layout.",
             "P2P payment platform unifying bank accounts and e-wallets into one intuitive financial interface.",
@@ -201,7 +201,7 @@ export const translations: Record<Lang, Translations> = {
         portfolioSoonSub: "Новый проект в разработке",
         portfolioProjectDescs: [
             "Аналитическая платформа энергетики с визуализацией данных в реальном времени и тёмной темой.",
-            "Платформа бронирования и управления услугами с профилями исполнителей, расписанием и удобным интерфейсом.",
+            "Онлайн-платформа для бронирования туров по Узбекистану с пакетами, гидами и удобным процессом бронирования.",
             "Современный банковский интерфейс с потоками транзакций и управлением картами.",
             "Рабочее пространство для задач и продуктивности с досками, напоминаниями и минималистичным интерфейсом.",
             "P2P-платёжная платформа, объединяющая банковские счета и электронные кошельки.",
@@ -297,7 +297,7 @@ export const translations: Record<Lang, Translations> = {
         portfolioSoonSub: "Yangi loyiha tayyorlanmoqda",
         portfolioProjectDescs: [
             "Real vaqt ma'lumotlar vizualizatsiyasi va qorong'u rejimli boshqaruv paneli bilan energetika tahlil platformasi.",
-            "Xizmatlarni bron qilish va boshqarish platformasi — ijrochi profillari, aqlli jadval va mijozlar uchun qulay interfeys.",
+            "O'zbekiston bo'ylab sayohat va tur paketlarini bron qilish platformasi — gidlar, paketlar va qulay rezervatsiya jarayoni.",
             "Tranzaksiya oqimlari, karta boshqaruvi va xavfsiz forma naqshlari bilan zamonaviy bank interfeysi.",
             "Vazifalar va samaradorlik uchun ish maydoni — doskalar, eslatmalar va diqqatni jamlovchi sodda interfeys.",
             "Bank hisoblar va elektron hamyonlarni birlashtiradigan P2P to'lov platformasi.",

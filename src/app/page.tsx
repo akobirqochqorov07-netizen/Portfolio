@@ -1,53 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
-import { LanguageProvider, useLanguage } from "@/contexts/language-context";
+import { LanguageProvider } from "@/contexts/language-context";
 import Sidebar from "../components/sidebar";
 import AboutTab from "../components/tabs/about";
 import ResumeTab from "../components/tabs/resume";
 import PortfolioTab from "../components/tabs/portfolio";
 import LanguageSwitcher from "../components/ui/language-switcher";
-
-function NavBar({ activeTab, setActiveTab }: {
-  activeTab: "about" | "resume" | "portfolio";
-  setActiveTab: (t: "about" | "resume" | "portfolio") => void;
-}) {
-  const { t } = useLanguage();
-  return (
-    <nav className="navbar">
-      <ul className="navbar-list">
-        <li className="navbar-item">
-          <button
-            className={`navbar-link ${activeTab === "about" ? "active" : ""}`}
-            onClick={() => setActiveTab("about")}
-          >
-            {t.navAbout}
-          </button>
-        </li>
-        <li className="navbar-item">
-          <button
-            className={`navbar-link ${activeTab === "resume" ? "active" : ""}`}
-            onClick={() => setActiveTab("resume")}
-          >
-            {t.navResume}
-          </button>
-        </li>
-        <li className="navbar-item">
-          <button
-            className={`navbar-link ${activeTab === "portfolio" ? "active" : ""}`}
-            onClick={() => setActiveTab("portfolio")}
-          >
-            {t.navPortfolio}
-          </button>
-        </li>
-      </ul>
-      {/* Lang switcher in navbar — mobile only */}
-      <div className="navbar-lang-slot">
-        <LanguageSwitcher />
-      </div>
-    </nav>
-  );
-}
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<"about" | "resume" | "portfolio">("about");
@@ -57,7 +16,42 @@ export default function Home() {
       <main>
         <Sidebar />
         <div className="main-content">
-          <NavBar activeTab={activeTab} setActiveTab={setActiveTab} />
+          <nav className="navbar">
+            <ul className="navbar-list">
+              <li className="navbar-item">
+                <button
+                  className={`navbar-link ${activeTab === "about" ? "active" : ""}`}
+                  onClick={() => setActiveTab("about")}
+                  data-nav-link
+                >
+                  About
+                </button>
+              </li>
+              <li className="navbar-item">
+                <button
+                  className={`navbar-link ${activeTab === "resume" ? "active" : ""}`}
+                  onClick={() => setActiveTab("resume")}
+                  data-nav-link
+                >
+                  Resume
+                </button>
+              </li>
+              <li className="navbar-item">
+                <button
+                  className={`navbar-link ${activeTab === "portfolio" ? "active" : ""}`}
+                  onClick={() => setActiveTab("portfolio")}
+                  data-nav-link
+                >
+                  Portfolio
+                </button>
+              </li>
+            </ul>
+            {/* Language switcher — desktop: next to Portfolio, mobile: right side of navbar */}
+            <div className="navbar-lang-inline">
+              <LanguageSwitcher />
+            </div>
+          </nav>
+
           <AboutTab active={activeTab === "about"} />
           <ResumeTab active={activeTab === "resume"} />
           <PortfolioTab active={activeTab === "portfolio"} />
