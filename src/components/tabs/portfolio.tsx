@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ExternalLink } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
@@ -34,15 +34,17 @@ const PROJECTS = [
 
 const CARD_LINKS = [
     "https://akobirqochqorov07-netizen.github.io/GreenByte/",
-    "https://akobirqochqorov07-netizen.github.io/tozago/",
+    "https://akobirqochqorov07-netizen.github.io/Bahola/",
     "https://payfintech.uz/",
-    "https://intask.uz/",
+    "https://akobirqochqorov07-netizen.github.io/SkillSwap2/",
     "https://pully.uz/",
     "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/",
 ];
 
-const CARD_TITLES = ["Greenbyte", "Tozago", "Payfintech", "Intask", "Pully", "Arlo AI"];
-const CARD_IMGS   = [
+const CARD_TITLES = [
+    "Greenbyte", "Bahola", "Payfintech", "SkillSwap", "Pully", "Arlo AI",
+];
+const CARD_IMGS = [
     asset("/assets/images/project04.webp"),
     asset("/assets/images/project02.webp"),
     asset("/assets/images/project05.webp"),
@@ -54,6 +56,18 @@ const CARD_IMGS   = [
 export default function PortfolioTab({ active }: { active: boolean }) {
     const { t } = useLanguage();
     const [expanded, setExpanded] = useState(false);
+    const [columnCount, setColumnCount] = useState(3);
+
+    // Responsive column count — applied only after mount to avoid hydration mismatch.
+    useEffect(() => {
+        const update = () => {
+            const w = window.innerWidth;
+            setColumnCount(w < 560 ? 1 : w < 900 ? 2 : 3);
+        };
+        update();
+        window.addEventListener("resize", update);
+        return () => window.removeEventListener("resize", update);
+    }, []);
 
     return (
         <article className={`portfolio ${active ? "active" : ""}`} data-page="portfolio">
@@ -64,7 +78,7 @@ export default function PortfolioTab({ active }: { active: boolean }) {
             {/* ── Logo carousel ── */}
             <section className="pf-logo-section">
                 <p className="pf-logo-label">{t.portfolioSubtitle}</p>
-                <LogoCarousel columnCount={3} logos={LOGOS} />
+                <LogoCarousel columnCount={columnCount} logos={LOGOS} />
 
                 <button
                     className={`pf-expand-btn ${expanded ? "pf-expand-btn--open" : ""}`}

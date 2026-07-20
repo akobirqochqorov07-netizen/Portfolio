@@ -10,7 +10,7 @@ interface IonIconProps {
 // This wrapper avoids TypeScript errors while preserving correct rendering.
 const IonIcon = ({ name, ...rest }: IonIconProps) => {
     const Tag = "ion-icon" as any;
-    return <Tag name={name} {...rest} />;
+    return <Tag name={name} suppressHydrationWarning {...rest} />;
 };
 
 export default IonIcon;

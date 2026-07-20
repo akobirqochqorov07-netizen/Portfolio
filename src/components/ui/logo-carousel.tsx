@@ -30,16 +30,18 @@ const shuffleArray = <T,>(array: T[]): T[] => {
     return shuffled;
 };
 
+// Deterministic distribution (no randomness) so server and client match on first render.
 const distributeLogos = (allLogos: LogoItem[], columnCount: number): LogoItem[][] => {
-    const shuffled = shuffleArray(allLogos);
     const columns: LogoItem[][] = Array.from({ length: columnCount }, () => []);
-    shuffled.forEach((logo, index) => {
+    allLogos.forEach((logo, index) => {
         columns[index % columnCount].push(logo);
     });
     const maxLength = Math.max(...columns.map((col) => col.length));
-    columns.forEach((col) => {
+    columns.forEach((col, ci) => {
+        let fill = 0;
         while (col.length < maxLength) {
-            col.push(shuffled[Math.floor(Math.random() * shuffled.length)]);
+            col.push(allLogos[(ci + fill + 1) % allLogos.length]);
+            fill++;
         }
     });
     return columns;
@@ -109,7 +111,17 @@ interface LogoCarouselProps {
 
 export function LogoCarousel({ columnCount = 3, logos }: LogoCarouselProps) {
     const [currentTime, setCurrentTime] = useState(0);
-    const logoSets = useMemo(() => distributeLogos(logos, columnCount), [logos, columnCount]);
+    const [logoSets, setLogoSets] = useState<LogoItem[][] | null>(null);
+
+    // Distribute deterministically first render (server + client match),
+    // then shuffle on the client after mount to avoid hydration mismatch.
+    const baseSets = useMemo(() => distributeLogos(logos, columnCount), [logos, columnCount]);
+
+    useEffect(() => {
+        setLogoSets(distributeLogos(shuffleArray(logos), columnCount));
+    }, [logos, columnCount]);
+
+    const sets = logoSets ?? baseSets;
 
     const updateTime = useCallback(() => {
         setCurrentTime((prev) => prev + 100);
@@ -122,7 +134,7 @@ export function LogoCarousel({ columnCount = 3, logos }: LogoCarouselProps) {
 
     return (
         <div className="logo-carousel-root">
-            {logoSets.map((colLogos, i) => (
+            {sets.map((colLogos, i) => (
                 <LogoColumn
                     key={i}
                     logos={colLogos}

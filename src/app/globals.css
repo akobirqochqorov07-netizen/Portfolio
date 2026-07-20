@@ -2575,7 +2575,7 @@ main {
     right: 0;
     width: auto;
     border-radius: 0 20px;
-    padding: 0 24px;
+    padding: 0 28px;
     box-shadow: none;
     display: flex;
     align-items: center;
@@ -2588,7 +2588,11 @@ main {
   }
 
   .navbar-list {
-    gap: 24px;
+    gap: 36px;
+  }
+
+  .navbar-lang-slot {
+    margin-left: 20px;
   }
 
   .navbar-divider {
@@ -2637,14 +2641,13 @@ main {
   display: none; /* hidden by default, shown on desktop via 1024px query */
 }
 
-/* ── Navbar lang slot — shows on mobile inside navbar ── */
-.navbar-lang-slot {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  padding-right: 4px;
-}
-
+  /* ── Navbar lang slot — shows on mobile inside navbar ── */
+  .navbar-lang-slot {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    padding-right: 4px;
+  }
 
 /* ============================================================
    GLOBAL: Resume Skills Dials
@@ -4474,19 +4477,56 @@ main {
   }
 
   /* ── Logo carousel ── */
-  .logo-col-img {
-    height: 68px;
-    max-width: 76px;
-    border-radius: 12px;
+  .logo-carousel-root {
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
   }
 
   .logo-col-wrap {
-    height: 110px;
+    height: 160px;
+    flex: none;
+    max-width: 320px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .logo-col-img {
+    height: 96px;
+    max-width: 120px;
+    border-radius: 18px;
+  }
+
+  .logo-col-name {
+    font-size: 12px;
   }
 
   /* ── pf-list 1 col ── */
   .pf-list-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* ── pf-cards full width on extra small ── */
+  .pf-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .pj-img-wrap {
+    aspect-ratio: 16 / 10;
+  }
+
+  .pj-content {
+    padding: 16px 16px 18px;
+    gap: 8px;
+  }
+
+  .pj-title {
+    font-size: 16px;
+  }
+
+  .pj-desc {
+    font-size: 13px;
   }
 
   /* ── philosophy detail smaller ── */
