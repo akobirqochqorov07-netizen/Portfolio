@@ -226,7 +226,7 @@ article {
 article.active {
   display: block;
   animation: fade 0.5s ease backwards;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 }
 
 @keyframes fade {
@@ -605,7 +605,7 @@ main {
 \*-----------------------------------*/
 
 .about .article-title {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .about-text {
@@ -620,17 +620,17 @@ main {
 }
 
 .about-social {
-  margin-top: 25px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  margin-top: 12px;
+  padding-top: 12px;
+  padding-bottom: 4px;
   border-top: 1px solid var(--jet);
 }
 
 .about-social-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 8px;
+  margin-top: 10px;
 }
 
 .about-social-btn {
@@ -806,16 +806,17 @@ main {
 
 /* About Inner Tabs */
 .about-inner-tabs-container {
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .about-inner-tabs {
   display: flex;
-  gap: 4px;
+  gap: 3px;
   background: var(--smoky-black);
-  border-radius: 14px;
-  padding: 4px;
-  margin-bottom: 24px;
+  border-radius: 12px;
+  padding: 3px;
+  margin-bottom: 16px;
+  overflow: hidden;
 }
 
 .about-tab-btn {
@@ -823,16 +824,26 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 10px 12px;
-  border-radius: 11px;
-  font-size: var(--fs-7);
+  gap: 5px;
+  padding: 9px 6px;
+  border-radius: 10px;
+  font-size: var(--fs-8);
   font-weight: var(--fw-400);
   color: var(--light-gray-70);
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.about-tab-label-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  font-size: var(--fs-8);
 }
 
 .about-tab-btn:hover {
@@ -850,6 +861,7 @@ main {
 .about-tab-icon {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .about-tab-icon svg {
@@ -864,29 +876,34 @@ main {
 
 /* Content slider */
 .about-content-slider {
-  overflow: hidden;
   border-radius: 14px;
   touch-action: pan-y;
 }
 
 .about-content-track {
-  display: flex;
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
   touch-action: pan-y;
 }
 
 .about-content-slide {
-  min-width: 100%;
+  display: none;
   width: 100%;
-  flex-shrink: 0;
-  touch-action: pan-y;
+}
+
+.about-content-slide--active {
+  display: block;
+  animation: slide-fade-in 0.3s ease forwards;
+}
+
+@keyframes slide-fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* Interactive About Me Section */
 .about-interactive-me {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
 .about-me-intro {
@@ -938,8 +955,8 @@ main {
 .philosophy-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: 8px;
 }
 
 /* For desktops, two columns */
@@ -959,10 +976,10 @@ main {
 .philosophy-item {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
   background: var(--eerie-black-2);
   border: 1px solid var(--jet);
-  padding: 14px 18px;
+  padding: 10px 14px;
   border-radius: 18px;
   cursor: pointer;
   text-align: left;
@@ -1033,7 +1050,7 @@ main {
   background: linear-gradient(135deg, var(--eerie-black-2), rgba(30, 30, 30, 0.8));
   border: 1px solid var(--jet);
   border-radius: 20px;
-  padding: 24px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1103,14 +1120,14 @@ main {
 
 /* What I Do - Video cards Section */
 .service-v2 {
-  margin-top: 5px;
-  margin-bottom: 10px;
+  margin-top: 4px;
+  margin-bottom: 8px;
 }
 
 .service-v2-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 12px;
 }
 
 @media (min-width: 768px) {
@@ -1125,10 +1142,10 @@ main {
   background: var(--eerie-black-2);
   border: 1px solid var(--jet);
   border-radius: 20px;
-  padding: 24px;
+  padding: 16px;
   overflow: hidden;
-  height: 380px;
-  /* taller so video is fully visible */
+  height: 320px;
+  /* shorter on mobile */
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -1275,7 +1292,7 @@ main {
 .interests-showcase-container {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
   padding-bottom: 0;
 }
 
@@ -1319,8 +1336,8 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 18px 12px 14px;
+  gap: 6px;
+  padding: 12px 8px 10px;
   background: var(--eerie-black-3);
   border: 1.5px solid var(--jet);
   border-radius: 20px;
@@ -1332,7 +1349,7 @@ main {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   z-index: 1;
-  min-height: 90px;
+  min-height: 64px;
 }
 
 /* AI — full-width featured row */
@@ -1340,14 +1357,14 @@ main {
   grid-column: 1 / -1;
   flex-direction: row;
   justify-content: flex-start;
-  gap: 14px;
-  padding: 16px 20px;
-  min-height: 64px;
-  border-radius: 18px;
+  gap: 10px;
+  padding: 10px 14px;
+  min-height: 48px;
+  border-radius: 16px;
 }
-.interest-tag-chip:nth-child(1) .it-emoji { font-size: 32px; }
+.interest-tag-chip:nth-child(1) .it-emoji { font-size: 26px; }
 .interest-tag-chip:nth-child(1) .it-label {
-  font-size: var(--fs-6);
+  font-size: var(--fs-7);
   font-weight: var(--fw-500);
   text-align: left;
 }
@@ -1363,14 +1380,14 @@ main {
   grid-column: 1 / -1;
   flex-direction: row;
   justify-content: flex-start;
-  gap: 14px;
-  padding: 13px 20px;
-  min-height: 52px;
+  gap: 10px;
+  padding: 8px 14px;
+  min-height: 40px;
   opacity: 0.72;
   border-radius: 12px;
   border-style: dashed;
 }
-.interest-tag-chip:nth-child(4) .it-emoji { font-size: 20px; }
+.interest-tag-chip:nth-child(4) .it-emoji { font-size: 18px; }
 .interest-tag-chip:nth-child(4) .it-label { font-size: var(--fs-7); text-align: left; }
 
 /* Active states */
@@ -1391,7 +1408,7 @@ main {
 }
 
 .it-emoji {
-  font-size: 26px;
+  font-size: 22px;
   z-index: 2;
   line-height: 1;
 }
@@ -1400,6 +1417,9 @@ main {
   z-index: 2;
   line-height: 1.3;
   font-size: var(--fs-8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .it-chip-active-bg {
@@ -1417,7 +1437,7 @@ main {
   background: var(--eerie-black-2);
   border: 1px solid var(--jet);
   border-radius: 20px;
-  padding: 20px;
+  padding: 14px;
   display: flex;
   align-items: flex-start;
   position: relative;

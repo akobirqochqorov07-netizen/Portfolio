@@ -31,19 +31,19 @@ const PROJECTS = [
     { name: "Tozago",     img: asset("/assets/images/Tozago.webp"),     href: "https://akobirqochqorov07-netizen.github.io/tozago/",    tag: "Services" },
     { name: "Oxen",       img: asset("/assets/images/Oxen.webp"),       href: "https://azimboyevshuxrux-mvp1.rork.app",                 tag: "Mobile" },
 ];
-
 const CARD_LINKS = [
     "https://akobirqochqorov07-netizen.github.io/GreenByte/",
     "https://akobirqochqorov07-netizen.github.io/tozago/",
     "https://payfintech.uz/",
-    "https://akobirqochqorov07-netizen.github.io/SkillSwap2/",
+    "https://intask.uz/",
     "https://pully.uz/",
     "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/",
 ];
 
 const CARD_TITLES = [
-    "Greenbyte", "Tozago", "Payfintech", "SkillSwap", "Pully", "Arlo AI",
+    "Greenbyte", "Tozago", "Payfintech", "Intask", "Pully", "Arlo AI",
 ];
+
 const CARD_IMGS = [
     asset("/assets/images/project04.webp"),
     asset("/assets/images/project02.webp"),

@@ -86,25 +86,6 @@ export default function AboutTab({ active }: { active: boolean }) {
     const [section, setSection] = useState<0 | 1 | 2>(0);
     const [activePillar, setActivePillar] = useState<number>(0);
     const [activeInterest, setActiveInterest] = useState<string>("ai");
-    const [sliderHeight, setSliderHeight] = useState<number | undefined>(undefined);
-
-    const slideRefs = [
-        useRef<HTMLDivElement>(null),
-        useRef<HTMLDivElement>(null),
-        useRef<HTMLDivElement>(null),
-    ];
-
-    // Update slider height whenever section or content changes
-    useEffect(() => {
-        const el = slideRefs[section]?.current;
-        if (!el) return;
-        const update = () => setSliderHeight(el.offsetHeight);
-        update();
-        const ro = new ResizeObserver(update);
-        ro.observe(el);
-        return () => ro.disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [section, activeInterest]);
 
     const sections = [
         { key: "aboutMe", label: t.tabs.aboutMe },
@@ -192,11 +173,11 @@ export default function AboutTab({ active }: { active: boolean }) {
             </div>
 
             {/* ── Sliding track ── */}
-            <div className="about-content-slider" style={{ height: sliderHeight ? `${sliderHeight}px` : undefined }}>
-                <div className="about-content-track" style={{ transform: `translateX(-${section * 100}%)` }}>
+            <div className="about-content-slider">
+                <div className="about-content-track">
 
                     {/* ── SLIDE 0: About Me ── */}
-                    <div className="about-content-slide" ref={slideRefs[0]}>
+                    <div className={`about-content-slide ${section === 0 ? "about-content-slide--active" : ""}`}>
                         <div className="about-interactive-me">
                             <div className="about-me-intro">
                                 <h3 className="about-me-name-title">{"Akobir Qo'chqorov"}</h3>
@@ -249,7 +230,7 @@ export default function AboutTab({ active }: { active: boolean }) {
                     </div>
 
                     {/* ── SLIDE 1: What I Do ── */}
-                    <div className="about-content-slide" ref={slideRefs[1]}>
+                    <div className={`about-content-slide ${section === 1 ? "about-content-slide--active" : ""}`}>
                         <section className="service-v2">
                             <div className="service-v2-grid">
                                 {t.cards.map((card, i) => (
@@ -286,7 +267,7 @@ export default function AboutTab({ active }: { active: boolean }) {
                     </div>
 
                     {/* ── SLIDE 2: Interests ── */}
-                    <div className="about-content-slide" ref={slideRefs[2]}>
+                    <div className={`about-content-slide ${section === 2 ? "about-content-slide--active" : ""}`}>
                         <div className="interests-showcase-container">
                             {/* Left: tag chips */}
                             <div className="interests-interactive-grid">
