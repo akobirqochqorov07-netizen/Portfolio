@@ -59,11 +59,9 @@ export default function PortfolioTab({ active }: { active: boolean }) {
     const [columnCount, setColumnCount] = useState(3);
 
     // Responsive column count — applied only after mount to avoid hydration mismatch.
+    // Keep 3 columns everywhere so all logos cycle (never collapse to a single column).
     useEffect(() => {
-        const update = () => {
-            const w = window.innerWidth;
-            setColumnCount(w < 560 ? 1 : w < 900 ? 2 : 3);
-        };
+        const update = () => setColumnCount(3);
         update();
         window.addEventListener("resize", update);
         return () => window.removeEventListener("resize", update);
