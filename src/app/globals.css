@@ -2477,13 +2477,13 @@ main {
     height: 230px;
   }
 
-  /* Desktop navbar — top-right, from 1024px up */
+  /* Desktop navbar — top-right corner, inside the main content card (restored). */
   .navbar {
     position: absolute;
+    top: 30px;
     bottom: auto;
-    top: 0;
     left: auto;
-    right: 0;
+    right: 25px;
     width: auto;
     border-radius: 0 20px;
     padding: 0 28px;
@@ -2495,6 +2495,7 @@ main {
     background: var(--smoky-black);
     border-bottom: 1px solid var(--jet);
     border-left: 1px solid var(--jet);
+    border-top: none;
     z-index: 100;
   }
 
@@ -2515,6 +2516,7 @@ main {
 
   /* main-content: no height restrictions, let content flow naturally */
   .main-content {
+    position: relative;
     flex: 1;
     min-width: 0;
     margin: 0;
@@ -2753,9 +2755,7 @@ main {
 
 @media (min-width: 768px) {
   .resume-header-flex {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
   }
 }
 
