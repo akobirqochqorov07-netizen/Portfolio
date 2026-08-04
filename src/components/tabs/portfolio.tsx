@@ -17,7 +17,7 @@ const LOGOS: LogoItem[] = [
     { id: 6, name: "Arlo",       img: asset("/assets/images/Arlo.webp"),       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/" },
     { id: 7, name: "Intask",     img: asset("/assets/images/Intask.webp"),     href: "https://intask.uz/" },
     { id: 8, name: "Tozago",     img: asset("/assets/images/Tozago.webp"),     href: "https://akobirqochqorov07-netizen.github.io/tozago/" },
-    { id: 9, name: "Oxen",       img: asset("/assets/images/Oxen.webp"),       href: "https://azimboyevshuxrux-mvp1.rork.app" },
+    { id: 9, name: "Oxen",       img: asset("/assets/images/Oxen.webp"),       href: "https://www.oxentravel.com/" },
 ];
 
 const PROJECTS = [
@@ -29,7 +29,7 @@ const PROJECTS = [
     { name: "Arlo AI",    img: asset("/assets/images/Arlo.webp"),       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/",   tag: "AI / SaaS" },
     { name: "Intask",     img: asset("/assets/images/Intask.webp"),     href: "https://intask.uz/",                                     tag: "Productivity" },
     { name: "Tozago",     img: asset("/assets/images/Tozago.webp"),     href: "https://akobirqochqorov07-netizen.github.io/tozago/",    tag: "Services" },
-    { name: "Oxen",       img: asset("/assets/images/Oxen.webp"),       href: "https://azimboyevshuxrux-mvp1.rork.app",                 tag: "Mobile" },
+    { name: "Oxen",       img: asset("/assets/images/Oxen.webp"),       href: "https://www.oxentravel.com/",                 tag: "Mobile" },
 ];
 const CARD_LINKS = [
     "https://akobirqochqorov07-netizen.github.io/GreenByte/",
