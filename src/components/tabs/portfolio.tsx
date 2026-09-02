@@ -9,27 +9,33 @@ import { ProjectCard } from "@/components/ui/project-card";
 import { asset } from "@/lib/base-path";
 
 const LOGOS: LogoItem[] = [
-    { id: 1, name: "Greenbyte",  img: asset("/assets/images/Greenbyte.webp"),  href: "https://akobirqochqorov07-netizen.github.io/GreenByte/" },
-    { id: 2, name: "Bahola",     img: asset("/assets/images/Bahola.webp"),     href: "https://akobirqochqorov07-netizen.github.io/Bahola/" },
-    { id: 3, name: "Payfintech", img: asset("/assets/images/Payfintech.webp"), href: "https://payfintech.uz/" },
-    { id: 4, name: "SkillSwap",  img: asset("/assets/images/Skillswap.webp"),  href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/" },
-    { id: 5, name: "Pully",      img: asset("/assets/images/Pully.webp"),      href: "https://pully.uz/" },
-    { id: 6, name: "Arlo",       img: asset("/assets/images/Arlo.webp"),       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/" },
-    { id: 7, name: "Intask",     img: asset("/assets/images/Intask.webp"),     href: "https://intask.uz/" },
-    { id: 8, name: "Tozago",     img: asset("/assets/images/Tozago.webp"),     href: "https://akobirqochqorov07-netizen.github.io/tozago/" },
-    { id: 9, name: "Oxen",       img: asset("/assets/images/Oxen.webp"),       href: "https://www.oxentravel.com/" },
+    { id: 1,  name: "Greenbyte",    img: asset("/assets/images/Greenbyte.webp"),    href: "https://akobirqochqorov07-netizen.github.io/GreenByte/" },
+    { id: 2,  name: "Bahola",       img: asset("/assets/images/Bahola.webp"),       href: "https://akobirqochqorov07-netizen.github.io/Bahola/" },
+    { id: 3,  name: "Payfintech",   img: asset("/assets/images/Payfintech.webp"),   href: "https://payfintech.uz/" },
+    { id: 4,  name: "SkillSwap",    img: asset("/assets/images/Skillswap.webp"),    href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/" },
+    { id: 5,  name: "Pully",        img: asset("/assets/images/Pully.webp"),        href: "https://pully.uz/" },
+    { id: 6,  name: "Arlo",         img: asset("/assets/images/Arlo.webp"),         href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/" },
+    { id: 7,  name: "Intask",       img: asset("/assets/images/Intask.webp"),       href: "https://intask.uz/" },
+    { id: 8,  name: "Tozago",       img: asset("/assets/images/Tozago.webp"),       href: "https://akobirqochqorov07-netizen.github.io/tozago/" },
+    { id: 9,  name: "Oxen",         img: asset("/assets/images/Oxen.webp"),         href: "https://www.oxentravel.com/" },
+    { id: 10, name: "TravelZone",   img: asset("/assets/images/travelzone.png"),    href: "https://akobirqochqorov07-netizen.github.io/TravelZone/" },
+    { id: 11, name: "VibeCoding",   img: asset("/assets/images/vibecoding.png"),    href: "https://akobirqochqorov07-netizen.github.io/Vibecoding/" },
+    { id: 12, name: "OstimGlobal",  img: asset("/assets/images/ostimglobal.png"),   href: "https://ostimglobal.com/uz/home" },
 ];
 
 const PROJECTS = [
-    { name: "Greenbyte",  img: asset("/assets/images/Greenbyte.webp"),  href: "https://akobirqochqorov07-netizen.github.io/GreenByte/",  tag: "Web App" },
-    { name: "Bahola",     img: asset("/assets/images/Bahola.webp"),     href: "https://akobirqochqorov07-netizen.github.io/Bahola/",     tag: "Frontend" },
-    { name: "Payfintech", img: asset("/assets/images/Payfintech.webp"), href: "https://payfintech.uz/",                                  tag: "Fintech" },
-    { name: "SkillSwap",  img: asset("/assets/images/Skillswap.webp"),  href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/", tag: "Ed-Tech" },
-    { name: "Pully",      img: asset("/assets/images/Pully.webp"),      href: "https://pully.uz/",                                      tag: "Fintech" },
-    { name: "Arlo AI",    img: asset("/assets/images/Arlo.webp"),       href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/",   tag: "AI / SaaS" },
-    { name: "Intask",     img: asset("/assets/images/Intask.webp"),     href: "https://intask.uz/",                                     tag: "Productivity" },
-    { name: "Tozago",     img: asset("/assets/images/Tozago.webp"),     href: "https://akobirqochqorov07-netizen.github.io/tozago/",    tag: "Services" },
-    { name: "Oxen",       img: asset("/assets/images/Oxen.webp"),       href: "https://www.oxentravel.com/",                 tag: "Mobile" },
+    { name: "Greenbyte",   img: asset("/assets/images/Greenbyte.webp"),   href: "https://akobirqochqorov07-netizen.github.io/GreenByte/",   tag: "Web App" },
+    { name: "Bahola",      img: asset("/assets/images/Bahola.webp"),      href: "https://akobirqochqorov07-netizen.github.io/Bahola/",      tag: "Frontend" },
+    { name: "Payfintech",  img: asset("/assets/images/Payfintech.webp"),  href: "https://payfintech.uz/",                                   tag: "Fintech" },
+    { name: "SkillSwap",   img: asset("/assets/images/Skillswap.webp"),   href: "https://akobirqochqorov07-netizen.github.io/SkillSwap2/",  tag: "Ed-Tech" },
+    { name: "Pully",       img: asset("/assets/images/Pully.webp"),       href: "https://pully.uz/",                                       tag: "Fintech" },
+    { name: "Arlo AI",     img: asset("/assets/images/Arlo.webp"),        href: "https://akobirqochqorov07-netizen.github.io/ARLO-Ai/",    tag: "AI / SaaS" },
+    { name: "Intask",      img: asset("/assets/images/Intask.webp"),      href: "https://intask.uz/",                                      tag: "Productivity" },
+    { name: "Tozago",      img: asset("/assets/images/Tozago.webp"),      href: "https://akobirqochqorov07-netizen.github.io/tozago/",     tag: "Services" },
+    { name: "Oxen",        img: asset("/assets/images/Oxen.webp"),        href: "https://www.oxentravel.com/",                             tag: "Mobile" },
+    { name: "TravelZone",  img: asset("/assets/images/travelzone.png"),   href: "https://akobirqochqorov07-netizen.github.io/TravelZone/", tag: "Travel" },
+    { name: "VibeCoding",  img: asset("/assets/images/vibecoding.png"),   href: "https://akobirqochqorov07-netizen.github.io/Vibecoding/", tag: "Education" },
+    { name: "OstimGlobal", img: asset("/assets/images/ostimglobal.png"),  href: "https://ostimglobal.com/uz/home",                         tag: "Corporate" },
 ];
 const CARD_LINKS = [
     "https://akobirqochqorov07-netizen.github.io/GreenByte/",
@@ -125,12 +131,12 @@ export default function PortfolioTab({ active }: { active: boolean }) {
                                 </motion.a>
                             ))}
 
-                            {/* 10th — liquid glass Soon */}
+                            {/* 13th — liquid glass Soon */}
                             <motion.div
                                 className="pf-soon-card"
                                 initial={{ opacity: 0, y: 16 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.48, duration: 0.35 }}
+                                transition={{ delay: 0.65, duration: 0.35 }}
                             >
                                 <div className="pf-soon-glow" />
                                 <div className="pf-soon-inner">
