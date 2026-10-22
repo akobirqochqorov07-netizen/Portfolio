@@ -23,6 +23,7 @@ const LOGOS: LogoItem[] = [
     { id: 12, name: "OstimGlobal",  img: asset("/assets/images/ostimglobal.png"),   href: "https://ostimglobal.com/uz/home" },
     { id: 13, name: "3BEY",         img: asset("/assets/images/3bey.png"),         href: "https://3-bey.netlify.app/" },
     { id: 14, name: "Moxridin",     img: asset("/assets/images/moxridin.png"),     href: "https://moxridin-sayt.vercel.app/" },
+    { id: 15, name: "Garant",       img: asset("/assets/images/garant.png"),       href: "https://garant-lemon.vercel.app/" },
 ];
 
 const PROJECTS = [
@@ -40,6 +41,7 @@ const PROJECTS = [
     { name: "OstimGlobal", img: asset("/assets/images/ostimglobal.png"),  href: "https://ostimglobal.com/uz/home",                         tag: "Corporate" },
     { name: "3BEY",        img: asset("/assets/images/3bey.png"),         href: "https://3-bey.netlify.app/",                             tag: "Restoran" },
     { name: "Moxridin",    img: asset("/assets/images/moxridin.png"),     href: "https://moxridin-sayt.vercel.app/",                      tag: "Restoran" },
+    { name: "Garant",      img: asset("/assets/images/garant.png"),       href: "https://garant-lemon.vercel.app/",                       tag: "Loyalty" },
 ];
 const CARD_LINKS = [
     "https://akobirqochqorov07-netizen.github.io/GreenByte/",
