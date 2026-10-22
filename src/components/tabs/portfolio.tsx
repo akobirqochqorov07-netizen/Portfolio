@@ -21,6 +21,8 @@ const LOGOS: LogoItem[] = [
     { id: 10, name: "TravelZone",   img: asset("/assets/images/travelzone.png"),    href: "https://akobirqochqorov07-netizen.github.io/TravelZone/" },
     { id: 11, name: "VibeCoding",   img: asset("/assets/images/vibecoding.png"),    href: "https://akobirqochqorov07-netizen.github.io/Vibecoding/" },
     { id: 12, name: "OstimGlobal",  img: asset("/assets/images/ostimglobal.png"),   href: "https://ostimglobal.com/uz/home" },
+    { id: 13, name: "3BEY",         img: asset("/assets/images/3bey.png"),         href: "https://3-bey.netlify.app/" },
+    { id: 14, name: "Moxridin",     img: asset("/assets/images/moxridin.png"),     href: "https://moxridin-sayt.vercel.app/" },
 ];
 
 const PROJECTS = [
@@ -36,6 +38,8 @@ const PROJECTS = [
     { name: "TravelZone",  img: asset("/assets/images/travelzone.png"),   href: "https://akobirqochqorov07-netizen.github.io/TravelZone/", tag: "Travel" },
     { name: "VibeCoding",  img: asset("/assets/images/vibecoding.png"),   href: "https://akobirqochqorov07-netizen.github.io/Vibecoding/", tag: "Education" },
     { name: "OstimGlobal", img: asset("/assets/images/ostimglobal.png"),  href: "https://ostimglobal.com/uz/home",                         tag: "Corporate" },
+    { name: "3BEY",        img: asset("/assets/images/3bey.png"),         href: "https://3-bey.netlify.app/",                             tag: "Restoran" },
+    { name: "Moxridin",    img: asset("/assets/images/moxridin.png"),     href: "https://moxridin-sayt.vercel.app/",                      tag: "Restoran" },
 ];
 const CARD_LINKS = [
     "https://akobirqochqorov07-netizen.github.io/GreenByte/",
